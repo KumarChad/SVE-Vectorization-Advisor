@@ -1,0 +1,5 @@
+build/
+__pycache__/
+*.pyc
+test/Output/
+.lit_test_times.txt

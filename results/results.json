@@ -1,0 +1,2864 @@
+[
+ {
+  "cpu": "neoverse-v2",
+  "machine": "NVIDIA Grace",
+  "profile_vl": 128,
+  "variant": "clang -O3",
+  "variant_id": "clang_O3",
+  "kernel": "gemm_naive",
+  "size": 96,
+  "cmd": "clang --target=aarch64-linux-gnu -mcpu=neoverse-v2 -O3",
+  "correctness": [
+   {
+    "kernel": "gemm_naive",
+    "size": "96",
+    "vl_bits": "128",
+    "max_abs_err": "0.000e+00",
+    "max_rel_err": "0.000e+00",
+    "bit_exact": "1",
+    "ok": true
+   },
+   {
+    "kernel": "gemm_naive",
+    "size": "96",
+    "vl_bits": "256",
+    "max_abs_err": "0.000e+00",
+    "max_rel_err": "0.000e+00",
+    "bit_exact": "1",
+    "ok": true
+   },
+   {
+    "kernel": "gemm_naive",
+    "size": "96",
+    "vl_bits": "512",
+    "max_abs_err": "0.000e+00",
+    "max_rel_err": "0.000e+00",
+    "bit_exact": "1",
+    "ok": true
+   },
+   {
+    "kernel": "gemm_naive",
+    "size": "96",
+    "vl_bits": "2048",
+    "max_abs_err": "0.000e+00",
+    "max_rel_err": "0.000e+00",
+    "bit_exact": "1",
+    "ok": true
+   }
+  ],
+  "dyn_insns": 3226772,
+  "dyn_insns_traced": 3226772,
+  "est_cycles": 1803848.0699999998,
+  "mca_fallback_blocks": 0,
+  "hot_block": [
+   "ldr\ts1, [x21]",
+   "ldp\ts2, s3, [x20, #-0x8]",
+   "sub\tx19, x19, #0x4",
+   "cmp\tx12, x19",
+   "fmadd\ts0, s2, s1, s0",
+   "ldr\ts1, [x21, x10, lsl #2]",
+   "fmadd\ts0, s3, s1, s0",
+   "ldr\ts1, [x21, x15]",
+   "ldp\ts2, s3, [x20], #0x10",
+   "fmadd\ts0, s2, s1, s0",
+   "ldr\ts1, [x21, x13]",
+   "add\tx21, x21, x14",
+   "fmadd\ts0, s3, s1, s0",
+   "b.ne\t0x400ee0 <gemm_naive+0xc0>"
+  ],
+  "hot_block_execs": 221184,
+  "hot_block_cycles_per_iter": 8.055,
+  "uses_sve": false,
+  "uses_neon": false
+ },
+ {
+  "cpu": "neoverse-v2",
+  "machine": "NVIDIA Grace",
+  "profile_vl": 128,
+  "variant": "clang -O3",
+  "variant_id": "clang_O3",
+  "kernel": "gemm_tiled",
+  "size": 96,
+  "cmd": "clang --target=aarch64-linux-gnu -mcpu=neoverse-v2 -O3",
+  "correctness": [
+   {
+    "kernel": "gemm_tiled",
+    "size": "96",
+    "vl_bits": "128",
+    "max_abs_err": "0.000e+00",
+    "max_rel_err": "0.000e+00",
+    "bit_exact": "1",
+    "ok": true
+   },
+   {
+    "kernel": "gemm_tiled",
+    "size": "96",
+    "vl_bits": "256",
+    "max_abs_err": "0.000e+00",
+    "max_rel_err": "0.000e+00",
+    "bit_exact": "1",
+    "ok": true
+   },
+   {
+    "kernel": "gemm_tiled",
+    "size": "96",
+    "vl_bits": "512",
+    "max_abs_err": "0.000e+00",
+    "max_rel_err": "0.000e+00",
+    "bit_exact": "1",
+    "ok": true
+   },
+   {
+    "kernel": "gemm_tiled",
+    "size": "96",
+    "vl_bits": "2048",
+    "max_abs_err": "0.000e+00",
+    "max_rel_err": "0.000e+00",
+    "bit_exact": "1",
+    "ok": true
+   }
+  ],
+  "dyn_insns": 1504452,
+  "dyn_insns_traced": 1504452,
+  "est_cycles": 262373.7200000001,
+  "mca_fallback_blocks": 0,
+  "hot_block": [
+   "ldp\tq2, q3, [x9, #-0x10]",
+   "ldp\tq4, q5, [x28]",
+   "sub\tx5, x5, #0x8",
+   "add\tx9, x9, #0x20",
+   "cmp\tx3, x5",
+   "fmla\tv5.4s, v3.4s, v1.4s",
+   "fmla\tv4.4s, v2.4s, v1.4s",
+   "stp\tq4, q5, [x28], #0x20",
+   "b.ne\t0x401160 <gemm_tiled+0x200>"
+  ],
+  "hot_block_execs": 110592,
+  "hot_block_cycles_per_iter": 1.725,
+  "uses_sve": false,
+  "uses_neon": true
+ },
+ {
+  "cpu": "neoverse-v2",
+  "machine": "NVIDIA Grace",
+  "profile_vl": 128,
+  "variant": "clang -O3",
+  "variant_id": "clang_O3",
+  "kernel": "conv2d",
+  "size": 96,
+  "cmd": "clang --target=aarch64-linux-gnu -mcpu=neoverse-v2 -O3",
+  "correctness": [
+   {
+    "kernel": "conv2d",
+    "size": "96",
+    "vl_bits": "128",
+    "max_abs_err": "0.000e+00",
+    "max_rel_err": "0.000e+00",
+    "bit_exact": "1",
+    "ok": true
+   },
+   {
+    "kernel": "conv2d",
+    "size": "96",
+    "vl_bits": "256",
+    "max_abs_err": "0.000e+00",
+    "max_rel_err": "0.000e+00",
+    "bit_exact": "1",
+    "ok": true
+   },
+   {
+    "kernel": "conv2d",
+    "size": "96",
+    "vl_bits": "512",
+    "max_abs_err": "0.000e+00",
+    "max_rel_err": "0.000e+00",
+    "bit_exact": "1",
+    "ok": true
+   },
+   {
+    "kernel": "conv2d",
+    "size": "96",
+    "vl_bits": "2048",
+    "max_abs_err": "0.000e+00",
+    "max_rel_err": "0.000e+00",
+    "bit_exact": "1",
+    "ok": true
+   }
+  ],
+  "dyn_insns": 1052464,
+  "dyn_insns_traced": 1052464,
+  "est_cycles": 263428.26499999996,
+  "mca_fallback_blocks": 0,
+  "hot_block": [
+   "add\tw26, w20, w24",
+   "ldr\ts2, [x22, x24, lsl #2]",
+   "add\tx24, x24, #0x1",
+   "subs\tx25, x25, #0x1",
+   "ldr\ts1, [x4, w26, sxtw #2]",
+   "fmadd\ts0, s1, s2, s0",
+   "b.ne\t0x401304 <conv2d+0x124>"
+  ],
+  "hot_block_execs": 79524,
+  "hot_block_cycles_per_iter": 2.06,
+  "uses_sve": false,
+  "uses_neon": false
+ },
+ {
+  "cpu": "neoverse-v2",
+  "machine": "NVIDIA Grace",
+  "profile_vl": 128,
+  "variant": "+pass strict",
+  "variant_id": "pass_strict",
+  "kernel": "gemm_naive",
+  "size": 96,
+  "cmd": "clang --target=aarch64-linux-gnu -mcpu=neoverse-v2 -O3 libSveVectorizeHint.so libSveVectorizeHint.so -mllvm -sve-hint-mode=strict",
+  "correctness": [
+   {
+    "kernel": "gemm_naive",
+    "size": "96",
+    "vl_bits": "128",
+    "max_abs_err": "0.000e+00",
+    "max_rel_err": "0.000e+00",
+    "bit_exact": "1",
+    "ok": true
+   },
+   {
+    "kernel": "gemm_naive",
+    "size": "96",
+    "vl_bits": "256",
+    "max_abs_err": "0.000e+00",
+    "max_rel_err": "0.000e+00",
+    "bit_exact": "1",
+    "ok": true
+   },
+   {
+    "kernel": "gemm_naive",
+    "size": "96",
+    "vl_bits": "512",
+    "max_abs_err": "0.000e+00",
+    "max_rel_err": "0.000e+00",
+    "bit_exact": "1",
+    "ok": true
+   },
+   {
+    "kernel": "gemm_naive",
+    "size": "96",
+    "vl_bits": "2048",
+    "max_abs_err": "0.000e+00",
+    "max_rel_err": "0.000e+00",
+    "bit_exact": "1",
+    "ok": true
+   }
+  ],
+  "dyn_insns": 3226772,
+  "dyn_insns_traced": 3226772,
+  "est_cycles": 1803848.0699999998,
+  "mca_fallback_blocks": 0,
+  "hot_block": [
+   "ldr\ts1, [x21]",
+   "ldp\ts2, s3, [x20, #-0x8]",
+   "sub\tx19, x19, #0x4",
+   "cmp\tx12, x19",
+   "fmadd\ts0, s2, s1, s0",
+   "ldr\ts1, [x21, x10, lsl #2]",
+   "fmadd\ts0, s3, s1, s0",
+   "ldr\ts1, [x21, x15]",
+   "ldp\ts2, s3, [x20], #0x10",
+   "fmadd\ts0, s2, s1, s0",
+   "ldr\ts1, [x21, x13]",
+   "add\tx21, x21, x14",
+   "fmadd\ts0, s3, s1, s0",
+   "b.ne\t0x400ee0 <gemm_naive+0xc0>"
+  ],
+  "hot_block_execs": 221184,
+  "hot_block_cycles_per_iter": 8.055,
+  "uses_sve": false,
+  "uses_neon": false
+ },
+ {
+  "cpu": "neoverse-v2",
+  "machine": "NVIDIA Grace",
+  "profile_vl": 128,
+  "variant": "+pass strict",
+  "variant_id": "pass_strict",
+  "kernel": "gemm_tiled",
+  "size": 96,
+  "cmd": "clang --target=aarch64-linux-gnu -mcpu=neoverse-v2 -O3 libSveVectorizeHint.so libSveVectorizeHint.so -mllvm -sve-hint-mode=strict",
+  "correctness": [
+   {
+    "kernel": "gemm_tiled",
+    "size": "96",
+    "vl_bits": "128",
+    "max_abs_err": "0.000e+00",
+    "max_rel_err": "0.000e+00",
+    "bit_exact": "1",
+    "ok": true
+   },
+   {
+    "kernel": "gemm_tiled",
+    "size": "96",
+    "vl_bits": "256",
+    "max_abs_err": "0.000e+00",
+    "max_rel_err": "0.000e+00",
+    "bit_exact": "1",
+    "ok": true
+   },
+   {
+    "kernel": "gemm_tiled",
+    "size": "96",
+    "vl_bits": "512",
+    "max_abs_err": "0.000e+00",
+    "max_rel_err": "0.000e+00",
+    "bit_exact": "1",
+    "ok": true
+   },
+   {
+    "kernel": "gemm_tiled",
+    "size": "96",
+    "vl_bits": "2048",
+    "max_abs_err": "0.000e+00",
+    "max_rel_err": "0.000e+00",
+    "bit_exact": "1",
+    "ok": true
+   }
+  ],
+  "dyn_insns": 1504452,
+  "dyn_insns_traced": 1504452,
+  "est_cycles": 262373.7200000001,
+  "mca_fallback_blocks": 0,
+  "hot_block": [
+   "ldp\tq2, q3, [x9, #-0x10]",
+   "ldp\tq4, q5, [x28]",
+   "sub\tx5, x5, #0x8",
+   "add\tx9, x9, #0x20",
+   "cmp\tx3, x5",
+   "fmla\tv5.4s, v3.4s, v1.4s",
+   "fmla\tv4.4s, v2.4s, v1.4s",
+   "stp\tq4, q5, [x28], #0x20",
+   "b.ne\t0x401160 <gemm_tiled+0x200>"
+  ],
+  "hot_block_execs": 110592,
+  "hot_block_cycles_per_iter": 1.725,
+  "uses_sve": false,
+  "uses_neon": true
+ },
+ {
+  "cpu": "neoverse-v2",
+  "machine": "NVIDIA Grace",
+  "profile_vl": 128,
+  "variant": "+pass strict",
+  "variant_id": "pass_strict",
+  "kernel": "conv2d",
+  "size": 96,
+  "cmd": "clang --target=aarch64-linux-gnu -mcpu=neoverse-v2 -O3 libSveVectorizeHint.so libSveVectorizeHint.so -mllvm -sve-hint-mode=strict",
+  "correctness": [
+   {
+    "kernel": "conv2d",
+    "size": "96",
+    "vl_bits": "128",
+    "max_abs_err": "0.000e+00",
+    "max_rel_err": "0.000e+00",
+    "bit_exact": "1",
+    "ok": true
+   },
+   {
+    "kernel": "conv2d",
+    "size": "96",
+    "vl_bits": "256",
+    "max_abs_err": "0.000e+00",
+    "max_rel_err": "0.000e+00",
+    "bit_exact": "1",
+    "ok": true
+   },
+   {
+    "kernel": "conv2d",
+    "size": "96",
+    "vl_bits": "512",
+    "max_abs_err": "0.000e+00",
+    "max_rel_err": "0.000e+00",
+    "bit_exact": "1",
+    "ok": true
+   },
+   {
+    "kernel": "conv2d",
+    "size": "96",
+    "vl_bits": "2048",
+    "max_abs_err": "0.000e+00",
+    "max_rel_err": "0.000e+00",
+    "bit_exact": "1",
+    "ok": true
+   }
+  ],
+  "dyn_insns": 1052464,
+  "dyn_insns_traced": 1052464,
+  "est_cycles": 263428.26499999996,
+  "mca_fallback_blocks": 0,
+  "hot_block": [
+   "add\tw26, w20, w24",
+   "ldr\ts2, [x22, x24, lsl #2]",
+   "add\tx24, x24, #0x1",
+   "subs\tx25, x25, #0x1",
+   "ldr\ts1, [x4, w26, sxtw #2]",
+   "fmadd\ts0, s1, s2, s0",
+   "b.ne\t0x401304 <conv2d+0x124>"
+  ],
+  "hot_block_execs": 79524,
+  "hot_block_cycles_per_iter": 2.06,
+  "uses_sve": false,
+  "uses_neon": false
+ },
+ {
+  "cpu": "neoverse-v2",
+  "machine": "NVIDIA Grace",
+  "profile_vl": 128,
+  "variant": "+pass relaxed (default policy)",
+  "variant_id": "pass_relaxed",
+  "kernel": "gemm_naive",
+  "size": 96,
+  "cmd": "clang --target=aarch64-linux-gnu -mcpu=neoverse-v2 -O3 libSveVectorizeHint.so libSveVectorizeHint.so -mllvm -sve-hint-mode=relaxed",
+  "correctness": [
+   {
+    "kernel": "gemm_naive",
+    "size": "96",
+    "vl_bits": "128",
+    "max_abs_err": "3.815e-06",
+    "max_rel_err": "2.994e-07",
+    "bit_exact": "0",
+    "ok": true
+   },
+   {
+    "kernel": "gemm_naive",
+    "size": "96",
+    "vl_bits": "256",
+    "max_abs_err": "3.815e-06",
+    "max_rel_err": "2.994e-07",
+    "bit_exact": "0",
+    "ok": true
+   },
+   {
+    "kernel": "gemm_naive",
+    "size": "96",
+    "vl_bits": "512",
+    "max_abs_err": "3.815e-06",
+    "max_rel_err": "2.994e-07",
+    "bit_exact": "0",
+    "ok": true
+   },
+   {
+    "kernel": "gemm_naive",
+    "size": "96",
+    "vl_bits": "2048",
+    "max_abs_err": "3.815e-06",
+    "max_rel_err": "2.994e-07",
+    "bit_exact": "0",
+    "ok": true
+   }
+  ],
+  "dyn_insns": 4139253,
+  "dyn_insns_traced": 4139253,
+  "est_cycles": 945716.2600000001,
+  "mca_fallback_blocks": 0,
+  "hot_block": [
+   "ldp\ts2, s3, [x19, #-0x4]",
+   "ldr\ts4, [x20]",
+   "ldr\ts5, [x20, x10, lsl #2]",
+   "subs\tx21, x21, #0x2",
+   "add\tx20, x20, x12",
+   "add\tx19, x19, #0x8",
+   "fmadd\ts0, s2, s4, s0",
+   "fmadd\ts1, s3, s5, s1",
+   "b.ne\t0x400ee0 <gemm_naive+0xc0>"
+  ],
+  "hot_block_execs": 442368,
+  "hot_block_cycles_per_iter": 2.055,
+  "uses_sve": false,
+  "uses_neon": false
+ },
+ {
+  "cpu": "neoverse-v2",
+  "machine": "NVIDIA Grace",
+  "profile_vl": 128,
+  "variant": "+pass relaxed (default policy)",
+  "variant_id": "pass_relaxed",
+  "kernel": "gemm_tiled",
+  "size": 96,
+  "cmd": "clang --target=aarch64-linux-gnu -mcpu=neoverse-v2 -O3 libSveVectorizeHint.so libSveVectorizeHint.so -mllvm -sve-hint-mode=relaxed",
+  "correctness": [
+   {
+    "kernel": "gemm_tiled",
+    "size": "96",
+    "vl_bits": "128",
+    "max_abs_err": "0.000e+00",
+    "max_rel_err": "0.000e+00",
+    "bit_exact": "1",
+    "ok": true
+   },
+   {
+    "kernel": "gemm_tiled",
+    "size": "96",
+    "vl_bits": "256",
+    "max_abs_err": "0.000e+00",
+    "max_rel_err": "0.000e+00",
+    "bit_exact": "1",
+    "ok": true
+   },
+   {
+    "kernel": "gemm_tiled",
+    "size": "96",
+    "vl_bits": "512",
+    "max_abs_err": "0.000e+00",
+    "max_rel_err": "0.000e+00",
+    "bit_exact": "1",
+    "ok": true
+   },
+   {
+    "kernel": "gemm_tiled",
+    "size": "96",
+    "vl_bits": "2048",
+    "max_abs_err": "0.000e+00",
+    "max_rel_err": "0.000e+00",
+    "bit_exact": "1",
+    "ok": true
+   }
+  ],
+  "dyn_insns": 1504452,
+  "dyn_insns_traced": 1504452,
+  "est_cycles": 262373.7200000001,
+  "mca_fallback_blocks": 0,
+  "hot_block": [
+   "ldp\tq2, q3, [x9, #-0x10]",
+   "ldp\tq4, q5, [x28]",
+   "sub\tx5, x5, #0x8",
+   "add\tx9, x9, #0x20",
+   "cmp\tx3, x5",
+   "fmla\tv5.4s, v3.4s, v1.4s",
+   "fmla\tv4.4s, v2.4s, v1.4s",
+   "stp\tq4, q5, [x28], #0x20",
+   "b.ne\t0x4011e0 <gemm_tiled+0x1f0>"
+  ],
+  "hot_block_execs": 110592,
+  "hot_block_cycles_per_iter": 1.725,
+  "uses_sve": false,
+  "uses_neon": true
+ },
+ {
+  "cpu": "neoverse-v2",
+  "machine": "NVIDIA Grace",
+  "profile_vl": 128,
+  "variant": "+pass relaxed (default policy)",
+  "variant_id": "pass_relaxed",
+  "kernel": "conv2d",
+  "size": 96,
+  "cmd": "clang --target=aarch64-linux-gnu -mcpu=neoverse-v2 -O3 libSveVectorizeHint.so libSveVectorizeHint.so -mllvm -sve-hint-mode=relaxed",
+  "correctness": [
+   {
+    "kernel": "conv2d",
+    "size": "96",
+    "vl_bits": "128",
+    "max_abs_err": "0.000e+00",
+    "max_rel_err": "0.000e+00",
+    "bit_exact": "1",
+    "ok": true
+   },
+   {
+    "kernel": "conv2d",
+    "size": "96",
+    "vl_bits": "256",
+    "max_abs_err": "0.000e+00",
+    "max_rel_err": "0.000e+00",
+    "bit_exact": "1",
+    "ok": true
+   },
+   {
+    "kernel": "conv2d",
+    "size": "96",
+    "vl_bits": "512",
+    "max_abs_err": "0.000e+00",
+    "max_rel_err": "0.000e+00",
+    "bit_exact": "1",
+    "ok": true
+   },
+   {
+    "kernel": "conv2d",
+    "size": "96",
+    "vl_bits": "2048",
+    "max_abs_err": "0.000e+00",
+    "max_rel_err": "0.000e+00",
+    "bit_exact": "1",
+    "ok": true
+   }
+  ],
+  "dyn_insns": 1061297,
+  "dyn_insns_traced": 1061297,
+  "est_cycles": 264752.82499999995,
+  "mca_fallback_blocks": 0,
+  "hot_block": [
+   "add\tw30, w23, w26",
+   "ldr\ts2, [x24, x26, lsl #2]",
+   "add\tx26, x26, #0x1",
+   "subs\tx28, x28, #0x1",
+   "ldr\ts1, [x4, w30, sxtw #2]",
+   "fmadd\ts0, s1, s2, s0",
+   "b.ne\t0x401384 <conv2d+0x124>"
+  ],
+  "hot_block_execs": 79524,
+  "hot_block_cycles_per_iter": 2.06,
+  "uses_sve": false,
+  "uses_neon": false
+ },
+ {
+  "cpu": "neoverse-v2",
+  "machine": "NVIDIA Grace",
+  "profile_vl": 128,
+  "variant": "+pass relaxed, gathers=off",
+  "variant_id": "pass_relaxed_nogather",
+  "kernel": "gemm_naive",
+  "size": 96,
+  "cmd": "clang --target=aarch64-linux-gnu -mcpu=neoverse-v2 -O3 libSveVectorizeHint.so libSveVectorizeHint.so -mllvm -sve-hint-mode=relaxed -mllvm -sve-hint-gathers=off",
+  "correctness": [
+   {
+    "kernel": "gemm_naive",
+    "size": "96",
+    "vl_bits": "128",
+    "max_abs_err": "3.815e-06",
+    "max_rel_err": "2.994e-07",
+    "bit_exact": "0",
+    "ok": true
+   },
+   {
+    "kernel": "gemm_naive",
+    "size": "96",
+    "vl_bits": "256",
+    "max_abs_err": "3.815e-06",
+    "max_rel_err": "2.994e-07",
+    "bit_exact": "0",
+    "ok": true
+   },
+   {
+    "kernel": "gemm_naive",
+    "size": "96",
+    "vl_bits": "512",
+    "max_abs_err": "3.815e-06",
+    "max_rel_err": "2.994e-07",
+    "bit_exact": "0",
+    "ok": true
+   },
+   {
+    "kernel": "gemm_naive",
+    "size": "96",
+    "vl_bits": "2048",
+    "max_abs_err": "3.815e-06",
+    "max_rel_err": "2.994e-07",
+    "bit_exact": "0",
+    "ok": true
+   }
+  ],
+  "dyn_insns": 4139253,
+  "dyn_insns_traced": 4139253,
+  "est_cycles": 945716.2600000001,
+  "mca_fallback_blocks": 0,
+  "hot_block": [
+   "ldp\ts2, s3, [x19, #-0x4]",
+   "ldr\ts4, [x20]",
+   "ldr\ts5, [x20, x10, lsl #2]",
+   "subs\tx21, x21, #0x2",
+   "add\tx20, x20, x12",
+   "add\tx19, x19, #0x8",
+   "fmadd\ts0, s2, s4, s0",
+   "fmadd\ts1, s3, s5, s1",
+   "b.ne\t0x400ee0 <gemm_naive+0xc0>"
+  ],
+  "hot_block_execs": 442368,
+  "hot_block_cycles_per_iter": 2.055,
+  "uses_sve": false,
+  "uses_neon": false
+ },
+ {
+  "cpu": "neoverse-v2",
+  "machine": "NVIDIA Grace",
+  "profile_vl": 128,
+  "variant": "+pass relaxed, gathers=off",
+  "variant_id": "pass_relaxed_nogather",
+  "kernel": "gemm_tiled",
+  "size": 96,
+  "cmd": "clang --target=aarch64-linux-gnu -mcpu=neoverse-v2 -O3 libSveVectorizeHint.so libSveVectorizeHint.so -mllvm -sve-hint-mode=relaxed -mllvm -sve-hint-gathers=off",
+  "correctness": [
+   {
+    "kernel": "gemm_tiled",
+    "size": "96",
+    "vl_bits": "128",
+    "max_abs_err": "0.000e+00",
+    "max_rel_err": "0.000e+00",
+    "bit_exact": "1",
+    "ok": true
+   },
+   {
+    "kernel": "gemm_tiled",
+    "size": "96",
+    "vl_bits": "256",
+    "max_abs_err": "0.000e+00",
+    "max_rel_err": "0.000e+00",
+    "bit_exact": "1",
+    "ok": true
+   },
+   {
+    "kernel": "gemm_tiled",
+    "size": "96",
+    "vl_bits": "512",
+    "max_abs_err": "0.000e+00",
+    "max_rel_err": "0.000e+00",
+    "bit_exact": "1",
+    "ok": true
+   },
+   {
+    "kernel": "gemm_tiled",
+    "size": "96",
+    "vl_bits": "2048",
+    "max_abs_err": "0.000e+00",
+    "max_rel_err": "0.000e+00",
+    "bit_exact": "1",
+    "ok": true
+   }
+  ],
+  "dyn_insns": 1504452,
+  "dyn_insns_traced": 1504452,
+  "est_cycles": 262373.7200000001,
+  "mca_fallback_blocks": 0,
+  "hot_block": [
+   "ldp\tq2, q3, [x9, #-0x10]",
+   "ldp\tq4, q5, [x28]",
+   "sub\tx5, x5, #0x8",
+   "add\tx9, x9, #0x20",
+   "cmp\tx3, x5",
+   "fmla\tv5.4s, v3.4s, v1.4s",
+   "fmla\tv4.4s, v2.4s, v1.4s",
+   "stp\tq4, q5, [x28], #0x20",
+   "b.ne\t0x4011e0 <gemm_tiled+0x1f0>"
+  ],
+  "hot_block_execs": 110592,
+  "hot_block_cycles_per_iter": 1.725,
+  "uses_sve": false,
+  "uses_neon": true
+ },
+ {
+  "cpu": "neoverse-v2",
+  "machine": "NVIDIA Grace",
+  "profile_vl": 128,
+  "variant": "+pass relaxed, gathers=off",
+  "variant_id": "pass_relaxed_nogather",
+  "kernel": "conv2d",
+  "size": 96,
+  "cmd": "clang --target=aarch64-linux-gnu -mcpu=neoverse-v2 -O3 libSveVectorizeHint.so libSveVectorizeHint.so -mllvm -sve-hint-mode=relaxed -mllvm -sve-hint-gathers=off",
+  "correctness": [
+   {
+    "kernel": "conv2d",
+    "size": "96",
+    "vl_bits": "128",
+    "max_abs_err": "0.000e+00",
+    "max_rel_err": "0.000e+00",
+    "bit_exact": "1",
+    "ok": true
+   },
+   {
+    "kernel": "conv2d",
+    "size": "96",
+    "vl_bits": "256",
+    "max_abs_err": "0.000e+00",
+    "max_rel_err": "0.000e+00",
+    "bit_exact": "1",
+    "ok": true
+   },
+   {
+    "kernel": "conv2d",
+    "size": "96",
+    "vl_bits": "512",
+    "max_abs_err": "0.000e+00",
+    "max_rel_err": "0.000e+00",
+    "bit_exact": "1",
+    "ok": true
+   },
+   {
+    "kernel": "conv2d",
+    "size": "96",
+    "vl_bits": "2048",
+    "max_abs_err": "0.000e+00",
+    "max_rel_err": "0.000e+00",
+    "bit_exact": "1",
+    "ok": true
+   }
+  ],
+  "dyn_insns": 1061297,
+  "dyn_insns_traced": 1061297,
+  "est_cycles": 264752.82499999995,
+  "mca_fallback_blocks": 0,
+  "hot_block": [
+   "add\tw30, w23, w26",
+   "ldr\ts2, [x24, x26, lsl #2]",
+   "add\tx26, x26, #0x1",
+   "subs\tx28, x28, #0x1",
+   "ldr\ts1, [x4, w30, sxtw #2]",
+   "fmadd\ts0, s1, s2, s0",
+   "b.ne\t0x401384 <conv2d+0x124>"
+  ],
+  "hot_block_execs": 79524,
+  "hot_block_cycles_per_iter": 2.06,
+  "uses_sve": false,
+  "uses_neon": false
+ },
+ {
+  "cpu": "neoverse-v2",
+  "machine": "NVIDIA Grace",
+  "profile_vl": 128,
+  "variant": "+pass relaxed, force SVE everywhere",
+  "variant_id": "pass_force",
+  "kernel": "gemm_naive",
+  "size": 96,
+  "cmd": "clang --target=aarch64-linux-gnu -mcpu=neoverse-v2 -O3 libSveVectorizeHint.so libSveVectorizeHint.so -mllvm -sve-hint-mode=relaxed -mllvm -sve-hint-gathers=on -mllvm -sve-hint-force-scalable",
+  "correctness": [
+   {
+    "kernel": "gemm_naive",
+    "size": "96",
+    "vl_bits": "128",
+    "max_abs_err": "3.815e-06",
+    "max_rel_err": "2.994e-07",
+    "bit_exact": "0",
+    "ok": true
+   },
+   {
+    "kernel": "gemm_naive",
+    "size": "96",
+    "vl_bits": "256",
+    "max_abs_err": "3.815e-06",
+    "max_rel_err": "2.994e-07",
+    "bit_exact": "0",
+    "ok": true
+   },
+   {
+    "kernel": "gemm_naive",
+    "size": "96",
+    "vl_bits": "512",
+    "max_abs_err": "3.815e-06",
+    "max_rel_err": "2.994e-07",
+    "bit_exact": "0",
+    "ok": true
+   },
+   {
+    "kernel": "gemm_naive",
+    "size": "96",
+    "vl_bits": "2048",
+    "max_abs_err": "0.000e+00",
+    "max_rel_err": "0.000e+00",
+    "bit_exact": "1",
+    "ok": true
+   }
+  ],
+  "dyn_insns": 2489402,
+  "dyn_insns_traced": 2489402,
+  "est_cycles": 1039447.0250000001,
+  "mca_fallback_blocks": 0,
+  "hot_block": [
+   "add\tz18.d, z16.d, z2.d",
+   "add\tz19.d, z17.d, z2.d",
+   "mul\tz17.d, z17.d, z0.d",
+   "ld1w\t{ z20.s }, p0/z, [x15, x5, lsl #2]",
+   "ld1w\t{ z21.s }, p0/z, [x17, x5, lsl #2]",
+   "inch\tx5",
+   "cmp\tx4, x5",
+   "mul\tz16.d, z16.d, z0.d",
+   "ld1w\t{ z16.d }, p1/z, [x6, z16.d, lsl #2]",
+   "mul\tz22.d, z19.d, z0.d",
+   "mul\tz23.d, z18.d, z0.d",
+   "ld1w\t{ z17.d }, p1/z, [x6, z17.d, lsl #2]",
+   "uzp1\tz16.s, z16.s, z17.s",
+   "ld1w\t{ z17.d }, p1/z, [x6, z23.d, lsl #2]",
+   "ld1w\t{ z22.d }, p1/z, [x6, z22.d, lsl #2]",
+   "fmla\tz6.s, p0/m, z20.s, z16.s",
+   "add\tz16.d, z18.d, z2.d",
+   "uzp1\tz17.s, z17.s, z22.s",
+   "fmla\tz7.s, p0/m, z21.s, z17.s",
+   "add\tz17.d, z19.d, z2.d",
+   "b.ne\t0x400f04 <gemm_naive+0xe4>"
+  ],
+  "hot_block_execs": 110592,
+  "hot_block_cycles_per_iter": 8.515,
+  "uses_sve": true,
+  "uses_neon": false
+ },
+ {
+  "cpu": "neoverse-v2",
+  "machine": "NVIDIA Grace",
+  "profile_vl": 128,
+  "variant": "+pass relaxed, force SVE everywhere",
+  "variant_id": "pass_force",
+  "kernel": "gemm_tiled",
+  "size": 96,
+  "cmd": "clang --target=aarch64-linux-gnu -mcpu=neoverse-v2 -O3 libSveVectorizeHint.so libSveVectorizeHint.so -mllvm -sve-hint-mode=relaxed -mllvm -sve-hint-gathers=on -mllvm -sve-hint-force-scalable",
+  "correctness": [
+   {
+    "kernel": "gemm_tiled",
+    "size": "96",
+    "vl_bits": "128",
+    "max_abs_err": "0.000e+00",
+    "max_rel_err": "0.000e+00",
+    "bit_exact": "1",
+    "ok": true
+   },
+   {
+    "kernel": "gemm_tiled",
+    "size": "96",
+    "vl_bits": "256",
+    "max_abs_err": "0.000e+00",
+    "max_rel_err": "0.000e+00",
+    "bit_exact": "1",
+    "ok": true
+   },
+   {
+    "kernel": "gemm_tiled",
+    "size": "96",
+    "vl_bits": "512",
+    "max_abs_err": "0.000e+00",
+    "max_rel_err": "0.000e+00",
+    "bit_exact": "1",
+    "ok": true
+   },
+   {
+    "kernel": "gemm_tiled",
+    "size": "96",
+    "vl_bits": "2048",
+    "max_abs_err": "0.000e+00",
+    "max_rel_err": "0.000e+00",
+    "bit_exact": "1",
+    "ok": true
+   }
+  ],
+  "dyn_insns": 1726251,
+  "dyn_insns_traced": 1726251,
+  "est_cycles": 309341.04000000004,
+  "mca_fallback_blocks": 0,
+  "hot_block": [
+   "ld1w\t{ z2.s }, p0/z, [x10, x9, lsl #2]",
+   "ld1w\t{ z3.s }, p0/z, [x18, x9, lsl #2]",
+   "ld1w\t{ z4.s }, p0/z, [x27, x9, lsl #2]",
+   "fmad\tz2.s, p0/m, z1.s, z4.s",
+   "ld1w\t{ z5.s }, p0/z, [x28, x9, lsl #2]",
+   "fmad\tz3.s, p0/m, z1.s, z5.s",
+   "st1w\t{ z2.s }, p0, [x27, x9, lsl #2]",
+   "st1w\t{ z3.s }, p0, [x28, x9, lsl #2]",
+   "inch\tx9",
+   "cmp\tx12, x9",
+   "b.ne\t0x401180 <gemm_tiled+0x1e0>"
+  ],
+  "hot_block_execs": 110592,
+  "hot_block_cycles_per_iter": 2.05,
+  "uses_sve": true,
+  "uses_neon": false
+ },
+ {
+  "cpu": "neoverse-v2",
+  "machine": "NVIDIA Grace",
+  "profile_vl": 128,
+  "variant": "+pass relaxed, force SVE everywhere",
+  "variant_id": "pass_force",
+  "kernel": "conv2d",
+  "size": 96,
+  "cmd": "clang --target=aarch64-linux-gnu -mcpu=neoverse-v2 -O3 libSveVectorizeHint.so libSveVectorizeHint.so -mllvm -sve-hint-mode=relaxed -mllvm -sve-hint-gathers=on -mllvm -sve-hint-force-scalable",
+  "correctness": [
+   {
+    "kernel": "conv2d",
+    "size": "96",
+    "vl_bits": "128",
+    "max_abs_err": "0.000e+00",
+    "max_rel_err": "0.000e+00",
+    "bit_exact": "1",
+    "ok": true
+   },
+   {
+    "kernel": "conv2d",
+    "size": "96",
+    "vl_bits": "256",
+    "max_abs_err": "0.000e+00",
+    "max_rel_err": "0.000e+00",
+    "bit_exact": "1",
+    "ok": true
+   },
+   {
+    "kernel": "conv2d",
+    "size": "96",
+    "vl_bits": "512",
+    "max_abs_err": "0.000e+00",
+    "max_rel_err": "0.000e+00",
+    "bit_exact": "1",
+    "ok": true
+   },
+   {
+    "kernel": "conv2d",
+    "size": "96",
+    "vl_bits": "2048",
+    "max_abs_err": "0.000e+00",
+    "max_rel_err": "0.000e+00",
+    "bit_exact": "1",
+    "ok": true
+   }
+  ],
+  "dyn_insns": 1061297,
+  "dyn_insns_traced": 1061297,
+  "est_cycles": 264752.82499999995,
+  "mca_fallback_blocks": 0,
+  "hot_block": [
+   "add\tw30, w23, w26",
+   "ldr\ts2, [x24, x26, lsl #2]",
+   "add\tx26, x26, #0x1",
+   "subs\tx28, x28, #0x1",
+   "ldr\ts1, [x4, w30, sxtw #2]",
+   "fmadd\ts0, s1, s2, s0",
+   "b.ne\t0x401324 <conv2d+0x124>"
+  ],
+  "hot_block_execs": 79524,
+  "hot_block_cycles_per_iter": 2.06,
+  "uses_sve": false,
+  "uses_neon": false
+ },
+ {
+  "cpu": "neoverse-v2",
+  "machine": "NVIDIA Grace",
+  "profile_vl": 128,
+  "variant": "clang -O3 -ffast-math",
+  "variant_id": "clang_fastmath",
+  "kernel": "gemm_naive",
+  "size": 96,
+  "cmd": "clang --target=aarch64-linux-gnu -mcpu=neoverse-v2 -O3 -ffast-math",
+  "correctness": [
+   {
+    "kernel": "gemm_naive",
+    "size": "96",
+    "vl_bits": "128",
+    "max_abs_err": "3.815e-06",
+    "max_rel_err": "2.994e-07",
+    "bit_exact": "0",
+    "ok": true
+   },
+   {
+    "kernel": "gemm_naive",
+    "size": "96",
+    "vl_bits": "256",
+    "max_abs_err": "3.815e-06",
+    "max_rel_err": "2.994e-07",
+    "bit_exact": "0",
+    "ok": true
+   },
+   {
+    "kernel": "gemm_naive",
+    "size": "96",
+    "vl_bits": "512",
+    "max_abs_err": "3.815e-06",
+    "max_rel_err": "2.994e-07",
+    "bit_exact": "0",
+    "ok": true
+   },
+   {
+    "kernel": "gemm_naive",
+    "size": "96",
+    "vl_bits": "2048",
+    "max_abs_err": "3.815e-06",
+    "max_rel_err": "2.994e-07",
+    "bit_exact": "0",
+    "ok": true
+   }
+  ],
+  "dyn_insns": 4139253,
+  "dyn_insns_traced": 4139253,
+  "est_cycles": 945670.18,
+  "mca_fallback_blocks": 0,
+  "hot_block": [
+   "ldp\ts2, s3, [x19, #-0x4]",
+   "ldr\ts4, [x20]",
+   "ldr\ts5, [x20, x10, lsl #2]",
+   "subs\tx21, x21, #0x2",
+   "add\tx20, x20, x12",
+   "add\tx19, x19, #0x8",
+   "fmadd\ts0, s4, s2, s0",
+   "fmadd\ts1, s5, s3, s1",
+   "b.ne\t0x400ee0 <gemm_naive+0xc0>"
+  ],
+  "hot_block_execs": 442368,
+  "hot_block_cycles_per_iter": 2.055,
+  "uses_sve": false,
+  "uses_neon": false
+ },
+ {
+  "cpu": "neoverse-v2",
+  "machine": "NVIDIA Grace",
+  "profile_vl": 128,
+  "variant": "clang -O3 -ffast-math",
+  "variant_id": "clang_fastmath",
+  "kernel": "gemm_tiled",
+  "size": 96,
+  "cmd": "clang --target=aarch64-linux-gnu -mcpu=neoverse-v2 -O3 -ffast-math",
+  "correctness": [
+   {
+    "kernel": "gemm_tiled",
+    "size": "96",
+    "vl_bits": "128",
+    "max_abs_err": "0.000e+00",
+    "max_rel_err": "0.000e+00",
+    "bit_exact": "1",
+    "ok": true
+   },
+   {
+    "kernel": "gemm_tiled",
+    "size": "96",
+    "vl_bits": "256",
+    "max_abs_err": "0.000e+00",
+    "max_rel_err": "0.000e+00",
+    "bit_exact": "1",
+    "ok": true
+   },
+   {
+    "kernel": "gemm_tiled",
+    "size": "96",
+    "vl_bits": "512",
+    "max_abs_err": "0.000e+00",
+    "max_rel_err": "0.000e+00",
+    "bit_exact": "1",
+    "ok": true
+   },
+   {
+    "kernel": "gemm_tiled",
+    "size": "96",
+    "vl_bits": "2048",
+    "max_abs_err": "0.000e+00",
+    "max_rel_err": "0.000e+00",
+    "bit_exact": "1",
+    "ok": true
+   }
+  ],
+  "dyn_insns": 1726251,
+  "dyn_insns_traced": 1726251,
+  "est_cycles": 309341.04000000004,
+  "mca_fallback_blocks": 0,
+  "hot_block": [
+   "ld1w\t{ z2.s }, p0/z, [x10, x9, lsl #2]",
+   "ld1w\t{ z3.s }, p0/z, [x18, x9, lsl #2]",
+   "ld1w\t{ z4.s }, p0/z, [x27, x9, lsl #2]",
+   "fmad\tz2.s, p0/m, z1.s, z4.s",
+   "ld1w\t{ z5.s }, p0/z, [x28, x9, lsl #2]",
+   "fmad\tz3.s, p0/m, z1.s, z5.s",
+   "st1w\t{ z2.s }, p0, [x27, x9, lsl #2]",
+   "st1w\t{ z3.s }, p0, [x28, x9, lsl #2]",
+   "inch\tx9",
+   "cmp\tx12, x9",
+   "b.ne\t0x4011e0 <gemm_tiled+0x1f0>"
+  ],
+  "hot_block_execs": 110592,
+  "hot_block_cycles_per_iter": 2.05,
+  "uses_sve": true,
+  "uses_neon": false
+ },
+ {
+  "cpu": "neoverse-v2",
+  "machine": "NVIDIA Grace",
+  "profile_vl": 128,
+  "variant": "clang -O3 -ffast-math",
+  "variant_id": "clang_fastmath",
+  "kernel": "conv2d",
+  "size": 96,
+  "cmd": "clang --target=aarch64-linux-gnu -mcpu=neoverse-v2 -O3 -ffast-math",
+  "correctness": [
+   {
+    "kernel": "conv2d",
+    "size": "96",
+    "vl_bits": "128",
+    "max_abs_err": "0.000e+00",
+    "max_rel_err": "0.000e+00",
+    "bit_exact": "1",
+    "ok": true
+   },
+   {
+    "kernel": "conv2d",
+    "size": "96",
+    "vl_bits": "256",
+    "max_abs_err": "0.000e+00",
+    "max_rel_err": "0.000e+00",
+    "bit_exact": "1",
+    "ok": true
+   },
+   {
+    "kernel": "conv2d",
+    "size": "96",
+    "vl_bits": "512",
+    "max_abs_err": "0.000e+00",
+    "max_rel_err": "0.000e+00",
+    "bit_exact": "1",
+    "ok": true
+   },
+   {
+    "kernel": "conv2d",
+    "size": "96",
+    "vl_bits": "2048",
+    "max_abs_err": "0.000e+00",
+    "max_rel_err": "0.000e+00",
+    "bit_exact": "1",
+    "ok": true
+   }
+  ],
+  "dyn_insns": 1158498,
+  "dyn_insns_traced": 1158498,
+  "est_cycles": 270320.845,
+  "mca_fallback_blocks": 0,
+  "hot_block": [
+   "add\tw26, w20, w24",
+   "ldr\ts3, [x22, x24, lsl #2]",
+   "add\tx24, x24, #0x1",
+   "subs\tx25, x25, #0x1",
+   "ldr\ts2, [x4, w26, sxtw #2]",
+   "fmadd\ts1, s3, s2, s1",
+   "b.ne\t0x4013a0 <conv2d+0x140>"
+  ],
+  "hot_block_execs": 79524,
+  "hot_block_cycles_per_iter": 2.06,
+  "uses_sve": false,
+  "uses_neon": false
+ },
+ {
+  "cpu": "neoverse-v2",
+  "machine": "NVIDIA Grace",
+  "profile_vl": 128,
+  "variant": "gcc-13 -O3",
+  "variant_id": "gcc_O3",
+  "kernel": "gemm_naive",
+  "size": 96,
+  "cmd": "aarch64-linux-gnu-gcc -mcpu=neoverse-v2 -O3",
+  "correctness": [
+   {
+    "kernel": "gemm_naive",
+    "size": "96",
+    "vl_bits": "128",
+    "max_abs_err": "3.338e-06",
+    "max_rel_err": "2.620e-07",
+    "bit_exact": "0",
+    "ok": true
+   },
+   {
+    "kernel": "gemm_naive",
+    "size": "96",
+    "vl_bits": "256",
+    "max_abs_err": "3.338e-06",
+    "max_rel_err": "2.620e-07",
+    "bit_exact": "0",
+    "ok": true
+   },
+   {
+    "kernel": "gemm_naive",
+    "size": "96",
+    "vl_bits": "512",
+    "max_abs_err": "3.338e-06",
+    "max_rel_err": "2.620e-07",
+    "bit_exact": "0",
+    "ok": true
+   },
+   {
+    "kernel": "gemm_naive",
+    "size": "96",
+    "vl_bits": "2048",
+    "max_abs_err": "3.338e-06",
+    "max_rel_err": "2.620e-07",
+    "bit_exact": "0",
+    "ok": true
+   }
+  ],
+  "dyn_insns": 1871441,
+  "dyn_insns_traced": 1871441,
+  "est_cycles": 1372555.9099999997,
+  "mca_fallback_blocks": 0,
+  "hot_block": [
+   "ld1w\t{ z0.s }, p0/z, [x2, x0, lsl #2]",
+   "ld1w\t{ z2.s }, p0/z, [x1, z3.s, sxtw #2]",
+   "add\tx0, x0, x5",
+   "fmul\tz0.s, p0/m, z0.s, z2.s",
+   "add\tx1, x1, x3",
+   "fadda\ts1, p0, s1, z0.s",
+   "whilelo\tp0.s, w0, w4",
+   "b.ne\t0x400e80 <gemm_naive+0x60>"
+  ],
+  "hot_block_execs": 221184,
+  "hot_block_cycles_per_iter": 6.12,
+  "uses_sve": true,
+  "uses_neon": false
+ },
+ {
+  "cpu": "neoverse-v2",
+  "machine": "NVIDIA Grace",
+  "profile_vl": 128,
+  "variant": "gcc-13 -O3",
+  "variant_id": "gcc_O3",
+  "kernel": "gemm_tiled",
+  "size": 96,
+  "cmd": "aarch64-linux-gnu-gcc -mcpu=neoverse-v2 -O3",
+  "correctness": [
+   {
+    "kernel": "gemm_tiled",
+    "size": "96",
+    "vl_bits": "128",
+    "max_abs_err": "0.000e+00",
+    "max_rel_err": "0.000e+00",
+    "bit_exact": "1",
+    "ok": true
+   },
+   {
+    "kernel": "gemm_tiled",
+    "size": "96",
+    "vl_bits": "256",
+    "max_abs_err": "0.000e+00",
+    "max_rel_err": "0.000e+00",
+    "bit_exact": "1",
+    "ok": true
+   },
+   {
+    "kernel": "gemm_tiled",
+    "size": "96",
+    "vl_bits": "512",
+    "max_abs_err": "0.000e+00",
+    "max_rel_err": "0.000e+00",
+    "bit_exact": "1",
+    "ok": true
+   },
+   {
+    "kernel": "gemm_tiled",
+    "size": "96",
+    "vl_bits": "2048",
+    "max_abs_err": "0.000e+00",
+    "max_rel_err": "0.000e+00",
+    "bit_exact": "1",
+    "ok": true
+   }
+  ],
+  "dyn_insns": 1362775,
+  "dyn_insns_traced": 1362775,
+  "est_cycles": 223337.26,
+  "mca_fallback_blocks": 0,
+  "hot_block": [
+   "ldr\tq0, [x0, x15]",
+   "ldr\tq2, [x24, x15]",
+   "ldr\tq5, [x16, x15]",
+   "fmla\tv0.4s, v2.4s, v4.4s",
+   "fmla\tv0.4s, v3.4s, v5.4s",
+   "str\tq0, [x0, x15]",
+   "add\tx15, x15, #0x10",
+   "cmp\tx1, x15",
+   "b.ne\t0x401060 <gemm_tiled+0x198>"
+  ],
+  "hot_block_execs": 103680,
+  "hot_block_cycles_per_iter": 1.4,
+  "uses_sve": false,
+  "uses_neon": true
+ },
+ {
+  "cpu": "neoverse-v2",
+  "machine": "NVIDIA Grace",
+  "profile_vl": 128,
+  "variant": "gcc-13 -O3",
+  "variant_id": "gcc_O3",
+  "kernel": "conv2d",
+  "size": 96,
+  "cmd": "aarch64-linux-gnu-gcc -mcpu=neoverse-v2 -O3",
+  "correctness": [
+   {
+    "kernel": "conv2d",
+    "size": "96",
+    "vl_bits": "128",
+    "max_abs_err": "4.768e-07",
+    "max_rel_err": "1.364e-07",
+    "bit_exact": "0",
+    "ok": true
+   },
+   {
+    "kernel": "conv2d",
+    "size": "96",
+    "vl_bits": "256",
+    "max_abs_err": "4.768e-07",
+    "max_rel_err": "1.364e-07",
+    "bit_exact": "0",
+    "ok": true
+   },
+   {
+    "kernel": "conv2d",
+    "size": "96",
+    "vl_bits": "512",
+    "max_abs_err": "4.768e-07",
+    "max_rel_err": "1.364e-07",
+    "bit_exact": "0",
+    "ok": true
+   },
+   {
+    "kernel": "conv2d",
+    "size": "96",
+    "vl_bits": "2048",
+    "max_abs_err": "4.768e-07",
+    "max_rel_err": "1.364e-07",
+    "bit_exact": "0",
+    "ok": true
+   }
+  ],
+  "dyn_insns": 636870,
+  "dyn_insns_traced": 636870,
+  "est_cycles": 254621.38,
+  "mca_fallback_blocks": 0,
+  "hot_block": [
+   "ld1w\t{ z0.s }, p0/z, [x2, x0, lsl #2]",
+   "ld1w\t{ z2.s }, p0/z, [x3, x0, lsl #2]",
+   "add\tx0, x0, x4",
+   "fmul\tz0.s, p0/m, z0.s, z2.s",
+   "fadda\ts1, p0, s1, z0.s",
+   "whilelo\tp0.s, w0, w1",
+   "b.ne\t0x4012e0 <conv2d+0x94>"
+  ],
+  "hot_block_execs": 26508,
+  "hot_block_cycles_per_iter": 6.06,
+  "uses_sve": true,
+  "uses_neon": false
+ },
+ {
+  "cpu": "neoverse-v1",
+  "machine": "AWS Graviton3",
+  "profile_vl": 256,
+  "variant": "clang -O3",
+  "variant_id": "clang_O3",
+  "kernel": "gemm_naive",
+  "size": 96,
+  "cmd": "clang --target=aarch64-linux-gnu -mcpu=neoverse-v1 -O3",
+  "correctness": [
+   {
+    "kernel": "gemm_naive",
+    "size": "96",
+    "vl_bits": "128",
+    "max_abs_err": "0.000e+00",
+    "max_rel_err": "0.000e+00",
+    "bit_exact": "1",
+    "ok": true
+   },
+   {
+    "kernel": "gemm_naive",
+    "size": "96",
+    "vl_bits": "256",
+    "max_abs_err": "0.000e+00",
+    "max_rel_err": "0.000e+00",
+    "bit_exact": "1",
+    "ok": true
+   },
+   {
+    "kernel": "gemm_naive",
+    "size": "96",
+    "vl_bits": "512",
+    "max_abs_err": "0.000e+00",
+    "max_rel_err": "0.000e+00",
+    "bit_exact": "1",
+    "ok": true
+   },
+   {
+    "kernel": "gemm_naive",
+    "size": "96",
+    "vl_bits": "2048",
+    "max_abs_err": "0.000e+00",
+    "max_rel_err": "0.000e+00",
+    "bit_exact": "1",
+    "ok": true
+   }
+  ],
+  "dyn_insns": 3226772,
+  "dyn_insns_traced": 3226772,
+  "est_cycles": 3575206.1350000002,
+  "mca_fallback_blocks": 0,
+  "hot_block": [
+   "ldr\ts1, [x21]",
+   "ldp\ts2, s3, [x20, #-0x8]",
+   "sub\tx19, x19, #0x4",
+   "cmp\tx12, x19",
+   "fmadd\ts0, s2, s1, s0",
+   "ldr\ts1, [x21, x10, lsl #2]",
+   "fmadd\ts0, s3, s1, s0",
+   "ldr\ts1, [x21, x15]",
+   "ldp\ts2, s3, [x20], #0x10",
+   "fmadd\ts0, s2, s1, s0",
+   "ldr\ts1, [x21, x13]",
+   "add\tx21, x21, x14",
+   "fmadd\ts0, s3, s1, s0",
+   "b.ne\t0x400ee0 <gemm_naive+0xc0>"
+  ],
+  "hot_block_execs": 221184,
+  "hot_block_cycles_per_iter": 16.045,
+  "uses_sve": false,
+  "uses_neon": false
+ },
+ {
+  "cpu": "neoverse-v1",
+  "machine": "AWS Graviton3",
+  "profile_vl": 256,
+  "variant": "clang -O3",
+  "variant_id": "clang_O3",
+  "kernel": "gemm_tiled",
+  "size": 96,
+  "cmd": "clang --target=aarch64-linux-gnu -mcpu=neoverse-v1 -O3",
+  "correctness": [
+   {
+    "kernel": "gemm_tiled",
+    "size": "96",
+    "vl_bits": "128",
+    "max_abs_err": "0.000e+00",
+    "max_rel_err": "0.000e+00",
+    "bit_exact": "1",
+    "ok": true
+   },
+   {
+    "kernel": "gemm_tiled",
+    "size": "96",
+    "vl_bits": "256",
+    "max_abs_err": "0.000e+00",
+    "max_rel_err": "0.000e+00",
+    "bit_exact": "1",
+    "ok": true
+   },
+   {
+    "kernel": "gemm_tiled",
+    "size": "96",
+    "vl_bits": "512",
+    "max_abs_err": "0.000e+00",
+    "max_rel_err": "0.000e+00",
+    "bit_exact": "1",
+    "ok": true
+   },
+   {
+    "kernel": "gemm_tiled",
+    "size": "96",
+    "vl_bits": "2048",
+    "max_abs_err": "0.000e+00",
+    "max_rel_err": "0.000e+00",
+    "bit_exact": "1",
+    "ok": true
+   }
+  ],
+  "dyn_insns": 1117996,
+  "dyn_insns_traced": 1117996,
+  "est_cycles": 277486.19,
+  "mca_fallback_blocks": 0,
+  "hot_block": [
+   "ld1w\t{ z2.s }, p0/z, [x10, x9, lsl #2]",
+   "ld1w\t{ z3.s }, p0/z, [x18, x9, lsl #2]",
+   "ld1w\t{ z4.s }, p0/z, [x27, x9, lsl #2]",
+   "fmad\tz2.s, p0/m, z1.s, z4.s",
+   "ld1w\t{ z5.s }, p0/z, [x28, x9, lsl #2]",
+   "fmad\tz3.s, p0/m, z1.s, z5.s",
+   "st1w\t{ z2.s }, p0, [x27, x9, lsl #2]",
+   "st1w\t{ z3.s }, p0, [x28, x9, lsl #2]",
+   "add\tx9, x9, x11",
+   "cmp\tx12, x9",
+   "b.ne\t0x401140 <gemm_tiled+0x1e0>"
+  ],
+  "hot_block_execs": 55296,
+  "hot_block_cycles_per_iter": 3.05,
+  "uses_sve": true,
+  "uses_neon": false
+ },
+ {
+  "cpu": "neoverse-v1",
+  "machine": "AWS Graviton3",
+  "profile_vl": 256,
+  "variant": "clang -O3",
+  "variant_id": "clang_O3",
+  "kernel": "conv2d",
+  "size": 96,
+  "cmd": "clang --target=aarch64-linux-gnu -mcpu=neoverse-v1 -O3",
+  "correctness": [
+   {
+    "kernel": "conv2d",
+    "size": "96",
+    "vl_bits": "128",
+    "max_abs_err": "0.000e+00",
+    "max_rel_err": "0.000e+00",
+    "bit_exact": "1",
+    "ok": true
+   },
+   {
+    "kernel": "conv2d",
+    "size": "96",
+    "vl_bits": "256",
+    "max_abs_err": "0.000e+00",
+    "max_rel_err": "0.000e+00",
+    "bit_exact": "1",
+    "ok": true
+   },
+   {
+    "kernel": "conv2d",
+    "size": "96",
+    "vl_bits": "512",
+    "max_abs_err": "0.000e+00",
+    "max_rel_err": "0.000e+00",
+    "bit_exact": "1",
+    "ok": true
+   },
+   {
+    "kernel": "conv2d",
+    "size": "96",
+    "vl_bits": "2048",
+    "max_abs_err": "0.000e+00",
+    "max_rel_err": "0.000e+00",
+    "bit_exact": "1",
+    "ok": true
+   }
+  ],
+  "dyn_insns": 1052462,
+  "dyn_insns_traced": 1052462,
+  "est_cycles": 436440.715,
+  "mca_fallback_blocks": 0,
+  "hot_block": [
+   "add\tw27, w22, w25",
+   "ldr\ts2, [x23, x25, lsl #2]",
+   "add\tx25, x25, #0x1",
+   "subs\tx26, x26, #0x1",
+   "ldr\ts1, [x4, w27, sxtw #2]",
+   "fmadd\ts0, s1, s2, s0",
+   "b.ne\t0x4012e4 <conv2d+0x124>"
+  ],
+  "hot_block_execs": 79524,
+  "hot_block_cycles_per_iter": 4.05,
+  "uses_sve": false,
+  "uses_neon": false
+ },
+ {
+  "cpu": "neoverse-v1",
+  "machine": "AWS Graviton3",
+  "profile_vl": 256,
+  "variant": "+pass strict",
+  "variant_id": "pass_strict",
+  "kernel": "gemm_naive",
+  "size": 96,
+  "cmd": "clang --target=aarch64-linux-gnu -mcpu=neoverse-v1 -O3 libSveVectorizeHint.so libSveVectorizeHint.so -mllvm -sve-hint-mode=strict",
+  "correctness": [
+   {
+    "kernel": "gemm_naive",
+    "size": "96",
+    "vl_bits": "128",
+    "max_abs_err": "0.000e+00",
+    "max_rel_err": "0.000e+00",
+    "bit_exact": "1",
+    "ok": true
+   },
+   {
+    "kernel": "gemm_naive",
+    "size": "96",
+    "vl_bits": "256",
+    "max_abs_err": "0.000e+00",
+    "max_rel_err": "0.000e+00",
+    "bit_exact": "1",
+    "ok": true
+   },
+   {
+    "kernel": "gemm_naive",
+    "size": "96",
+    "vl_bits": "512",
+    "max_abs_err": "0.000e+00",
+    "max_rel_err": "0.000e+00",
+    "bit_exact": "1",
+    "ok": true
+   },
+   {
+    "kernel": "gemm_naive",
+    "size": "96",
+    "vl_bits": "2048",
+    "max_abs_err": "0.000e+00",
+    "max_rel_err": "0.000e+00",
+    "bit_exact": "1",
+    "ok": true
+   }
+  ],
+  "dyn_insns": 3226772,
+  "dyn_insns_traced": 3226772,
+  "est_cycles": 3575206.1350000002,
+  "mca_fallback_blocks": 0,
+  "hot_block": [
+   "ldr\ts1, [x21]",
+   "ldp\ts2, s3, [x20, #-0x8]",
+   "sub\tx19, x19, #0x4",
+   "cmp\tx12, x19",
+   "fmadd\ts0, s2, s1, s0",
+   "ldr\ts1, [x21, x10, lsl #2]",
+   "fmadd\ts0, s3, s1, s0",
+   "ldr\ts1, [x21, x15]",
+   "ldp\ts2, s3, [x20], #0x10",
+   "fmadd\ts0, s2, s1, s0",
+   "ldr\ts1, [x21, x13]",
+   "add\tx21, x21, x14",
+   "fmadd\ts0, s3, s1, s0",
+   "b.ne\t0x400ee0 <gemm_naive+0xc0>"
+  ],
+  "hot_block_execs": 221184,
+  "hot_block_cycles_per_iter": 16.045,
+  "uses_sve": false,
+  "uses_neon": false
+ },
+ {
+  "cpu": "neoverse-v1",
+  "machine": "AWS Graviton3",
+  "profile_vl": 256,
+  "variant": "+pass strict",
+  "variant_id": "pass_strict",
+  "kernel": "gemm_tiled",
+  "size": 96,
+  "cmd": "clang --target=aarch64-linux-gnu -mcpu=neoverse-v1 -O3 libSveVectorizeHint.so libSveVectorizeHint.so -mllvm -sve-hint-mode=strict",
+  "correctness": [
+   {
+    "kernel": "gemm_tiled",
+    "size": "96",
+    "vl_bits": "128",
+    "max_abs_err": "0.000e+00",
+    "max_rel_err": "0.000e+00",
+    "bit_exact": "1",
+    "ok": true
+   },
+   {
+    "kernel": "gemm_tiled",
+    "size": "96",
+    "vl_bits": "256",
+    "max_abs_err": "0.000e+00",
+    "max_rel_err": "0.000e+00",
+    "bit_exact": "1",
+    "ok": true
+   },
+   {
+    "kernel": "gemm_tiled",
+    "size": "96",
+    "vl_bits": "512",
+    "max_abs_err": "0.000e+00",
+    "max_rel_err": "0.000e+00",
+    "bit_exact": "1",
+    "ok": true
+   },
+   {
+    "kernel": "gemm_tiled",
+    "size": "96",
+    "vl_bits": "2048",
+    "max_abs_err": "0.000e+00",
+    "max_rel_err": "0.000e+00",
+    "bit_exact": "1",
+    "ok": true
+   }
+  ],
+  "dyn_insns": 1117996,
+  "dyn_insns_traced": 1117996,
+  "est_cycles": 277486.19,
+  "mca_fallback_blocks": 0,
+  "hot_block": [
+   "ld1w\t{ z2.s }, p0/z, [x10, x9, lsl #2]",
+   "ld1w\t{ z3.s }, p0/z, [x18, x9, lsl #2]",
+   "ld1w\t{ z4.s }, p0/z, [x27, x9, lsl #2]",
+   "fmad\tz2.s, p0/m, z1.s, z4.s",
+   "ld1w\t{ z5.s }, p0/z, [x28, x9, lsl #2]",
+   "fmad\tz3.s, p0/m, z1.s, z5.s",
+   "st1w\t{ z2.s }, p0, [x27, x9, lsl #2]",
+   "st1w\t{ z3.s }, p0, [x28, x9, lsl #2]",
+   "add\tx9, x9, x11",
+   "cmp\tx12, x9",
+   "b.ne\t0x401140 <gemm_tiled+0x1e0>"
+  ],
+  "hot_block_execs": 55296,
+  "hot_block_cycles_per_iter": 3.05,
+  "uses_sve": true,
+  "uses_neon": false
+ },
+ {
+  "cpu": "neoverse-v1",
+  "machine": "AWS Graviton3",
+  "profile_vl": 256,
+  "variant": "+pass strict",
+  "variant_id": "pass_strict",
+  "kernel": "conv2d",
+  "size": 96,
+  "cmd": "clang --target=aarch64-linux-gnu -mcpu=neoverse-v1 -O3 libSveVectorizeHint.so libSveVectorizeHint.so -mllvm -sve-hint-mode=strict",
+  "correctness": [
+   {
+    "kernel": "conv2d",
+    "size": "96",
+    "vl_bits": "128",
+    "max_abs_err": "0.000e+00",
+    "max_rel_err": "0.000e+00",
+    "bit_exact": "1",
+    "ok": true
+   },
+   {
+    "kernel": "conv2d",
+    "size": "96",
+    "vl_bits": "256",
+    "max_abs_err": "0.000e+00",
+    "max_rel_err": "0.000e+00",
+    "bit_exact": "1",
+    "ok": true
+   },
+   {
+    "kernel": "conv2d",
+    "size": "96",
+    "vl_bits": "512",
+    "max_abs_err": "0.000e+00",
+    "max_rel_err": "0.000e+00",
+    "bit_exact": "1",
+    "ok": true
+   },
+   {
+    "kernel": "conv2d",
+    "size": "96",
+    "vl_bits": "2048",
+    "max_abs_err": "0.000e+00",
+    "max_rel_err": "0.000e+00",
+    "bit_exact": "1",
+    "ok": true
+   }
+  ],
+  "dyn_insns": 1052462,
+  "dyn_insns_traced": 1052462,
+  "est_cycles": 436440.715,
+  "mca_fallback_blocks": 0,
+  "hot_block": [
+   "add\tw27, w22, w25",
+   "ldr\ts2, [x23, x25, lsl #2]",
+   "add\tx25, x25, #0x1",
+   "subs\tx26, x26, #0x1",
+   "ldr\ts1, [x4, w27, sxtw #2]",
+   "fmadd\ts0, s1, s2, s0",
+   "b.ne\t0x4012e4 <conv2d+0x124>"
+  ],
+  "hot_block_execs": 79524,
+  "hot_block_cycles_per_iter": 4.05,
+  "uses_sve": false,
+  "uses_neon": false
+ },
+ {
+  "cpu": "neoverse-v1",
+  "machine": "AWS Graviton3",
+  "profile_vl": 256,
+  "variant": "+pass relaxed (default policy)",
+  "variant_id": "pass_relaxed",
+  "kernel": "gemm_naive",
+  "size": 96,
+  "cmd": "clang --target=aarch64-linux-gnu -mcpu=neoverse-v1 -O3 libSveVectorizeHint.so libSveVectorizeHint.so -mllvm -sve-hint-mode=relaxed",
+  "correctness": [
+   {
+    "kernel": "gemm_naive",
+    "size": "96",
+    "vl_bits": "128",
+    "max_abs_err": "3.815e-06",
+    "max_rel_err": "2.994e-07",
+    "bit_exact": "0",
+    "ok": true
+   },
+   {
+    "kernel": "gemm_naive",
+    "size": "96",
+    "vl_bits": "256",
+    "max_abs_err": "3.815e-06",
+    "max_rel_err": "2.994e-07",
+    "bit_exact": "0",
+    "ok": true
+   },
+   {
+    "kernel": "gemm_naive",
+    "size": "96",
+    "vl_bits": "512",
+    "max_abs_err": "3.815e-06",
+    "max_rel_err": "2.994e-07",
+    "bit_exact": "0",
+    "ok": true
+   },
+   {
+    "kernel": "gemm_naive",
+    "size": "96",
+    "vl_bits": "2048",
+    "max_abs_err": "0.000e+00",
+    "max_rel_err": "0.000e+00",
+    "bit_exact": "1",
+    "ok": true
+   }
+  ],
+  "dyn_insns": 1457208,
+  "dyn_insns_traced": 1457208,
+  "est_cycles": 656525.735,
+  "mca_fallback_blocks": 0,
+  "hot_block": [
+   "add\tz18.d, z16.d, z2.d",
+   "add\tz19.d, z17.d, z2.d",
+   "ld1w\t{ z20.s }, p0/z, [x16, x6, lsl #2]",
+   "ld1w\t{ z21.s }, p0/z, [x18, x6, lsl #2]",
+   "movprfx\tz22, z19",
+   "mul\tz22.d, p1/m, z22.d, z0.d",
+   "movprfx\tz23, z18",
+   "mul\tz23.d, p1/m, z23.d, z0.d",
+   "add\tx6, x6, x10",
+   "cmp\tx5, x6",
+   "mul\tz17.d, p1/m, z17.d, z0.d",
+   "mul\tz16.d, p1/m, z16.d, z0.d",
+   "ld1w\t{ z16.d }, p1/z, [x7, z16.d, lsl #2]",
+   "ld1w\t{ z17.d }, p1/z, [x7, z17.d, lsl #2]",
+   "uzp1\tz16.s, z16.s, z17.s",
+   "ld1w\t{ z17.d }, p1/z, [x7, z23.d, lsl #2]",
+   "ld1w\t{ z22.d }, p1/z, [x7, z22.d, lsl #2]",
+   "fmla\tz6.s, p0/m, z20.s, z16.s",
+   "add\tz16.d, z18.d, z2.d",
+   "uzp1\tz17.s, z17.s, z22.s",
+   "fmla\tz7.s, p0/m, z21.s, z17.s",
+   "add\tz17.d, z19.d, z2.d",
+   "b.ne\t0x400f04 <gemm_naive+0xe4>"
+  ],
+  "hot_block_execs": 55296,
+  "hot_block_cycles_per_iter": 9.105,
+  "uses_sve": true,
+  "uses_neon": false
+ },
+ {
+  "cpu": "neoverse-v1",
+  "machine": "AWS Graviton3",
+  "profile_vl": 256,
+  "variant": "+pass relaxed (default policy)",
+  "variant_id": "pass_relaxed",
+  "kernel": "gemm_tiled",
+  "size": 96,
+  "cmd": "clang --target=aarch64-linux-gnu -mcpu=neoverse-v1 -O3 libSveVectorizeHint.so libSveVectorizeHint.so -mllvm -sve-hint-mode=relaxed",
+  "correctness": [
+   {
+    "kernel": "gemm_tiled",
+    "size": "96",
+    "vl_bits": "128",
+    "max_abs_err": "0.000e+00",
+    "max_rel_err": "0.000e+00",
+    "bit_exact": "1",
+    "ok": true
+   },
+   {
+    "kernel": "gemm_tiled",
+    "size": "96",
+    "vl_bits": "256",
+    "max_abs_err": "0.000e+00",
+    "max_rel_err": "0.000e+00",
+    "bit_exact": "1",
+    "ok": true
+   },
+   {
+    "kernel": "gemm_tiled",
+    "size": "96",
+    "vl_bits": "512",
+    "max_abs_err": "0.000e+00",
+    "max_rel_err": "0.000e+00",
+    "bit_exact": "1",
+    "ok": true
+   },
+   {
+    "kernel": "gemm_tiled",
+    "size": "96",
+    "vl_bits": "2048",
+    "max_abs_err": "0.000e+00",
+    "max_rel_err": "0.000e+00",
+    "bit_exact": "1",
+    "ok": true
+   }
+  ],
+  "dyn_insns": 1117996,
+  "dyn_insns_traced": 1117996,
+  "est_cycles": 277486.19,
+  "mca_fallback_blocks": 0,
+  "hot_block": [
+   "ld1w\t{ z2.s }, p0/z, [x10, x9, lsl #2]",
+   "ld1w\t{ z3.s }, p0/z, [x18, x9, lsl #2]",
+   "ld1w\t{ z4.s }, p0/z, [x27, x9, lsl #2]",
+   "fmad\tz2.s, p0/m, z1.s, z4.s",
+   "ld1w\t{ z5.s }, p0/z, [x28, x9, lsl #2]",
+   "fmad\tz3.s, p0/m, z1.s, z5.s",
+   "st1w\t{ z2.s }, p0, [x27, x9, lsl #2]",
+   "st1w\t{ z3.s }, p0, [x28, x9, lsl #2]",
+   "add\tx9, x9, x11",
+   "cmp\tx12, x9",
+   "b.ne\t0x401180 <gemm_tiled+0x1e0>"
+  ],
+  "hot_block_execs": 55296,
+  "hot_block_cycles_per_iter": 3.05,
+  "uses_sve": true,
+  "uses_neon": false
+ },
+ {
+  "cpu": "neoverse-v1",
+  "machine": "AWS Graviton3",
+  "profile_vl": 256,
+  "variant": "+pass relaxed (default policy)",
+  "variant_id": "pass_relaxed",
+  "kernel": "conv2d",
+  "size": 96,
+  "cmd": "clang --target=aarch64-linux-gnu -mcpu=neoverse-v1 -O3 libSveVectorizeHint.so libSveVectorizeHint.so -mllvm -sve-hint-mode=relaxed",
+  "correctness": [
+   {
+    "kernel": "conv2d",
+    "size": "96",
+    "vl_bits": "128",
+    "max_abs_err": "0.000e+00",
+    "max_rel_err": "0.000e+00",
+    "bit_exact": "1",
+    "ok": true
+   },
+   {
+    "kernel": "conv2d",
+    "size": "96",
+    "vl_bits": "256",
+    "max_abs_err": "0.000e+00",
+    "max_rel_err": "0.000e+00",
+    "bit_exact": "1",
+    "ok": true
+   },
+   {
+    "kernel": "conv2d",
+    "size": "96",
+    "vl_bits": "512",
+    "max_abs_err": "0.000e+00",
+    "max_rel_err": "0.000e+00",
+    "bit_exact": "1",
+    "ok": true
+   },
+   {
+    "kernel": "conv2d",
+    "size": "96",
+    "vl_bits": "2048",
+    "max_abs_err": "0.000e+00",
+    "max_rel_err": "0.000e+00",
+    "bit_exact": "1",
+    "ok": true
+   }
+  ],
+  "dyn_insns": 1158497,
+  "dyn_insns_traced": 1158497,
+  "est_cycles": 438695.6450000001,
+  "mca_fallback_blocks": 0,
+  "hot_block": [
+   "add\tw27, w22, w25",
+   "ldr\ts3, [x23, x25, lsl #2]",
+   "add\tx25, x25, #0x1",
+   "subs\tx26, x26, #0x1",
+   "ldr\ts2, [x4, w27, sxtw #2]",
+   "fmadd\ts1, s2, s3, s1",
+   "b.ne\t0x401340 <conv2d+0x140>"
+  ],
+  "hot_block_execs": 79524,
+  "hot_block_cycles_per_iter": 4.05,
+  "uses_sve": false,
+  "uses_neon": false
+ },
+ {
+  "cpu": "neoverse-v1",
+  "machine": "AWS Graviton3",
+  "profile_vl": 256,
+  "variant": "+pass relaxed, gathers=off",
+  "variant_id": "pass_relaxed_nogather",
+  "kernel": "gemm_naive",
+  "size": 96,
+  "cmd": "clang --target=aarch64-linux-gnu -mcpu=neoverse-v1 -O3 libSveVectorizeHint.so libSveVectorizeHint.so -mllvm -sve-hint-mode=relaxed -mllvm -sve-hint-gathers=off",
+  "correctness": [
+   {
+    "kernel": "gemm_naive",
+    "size": "96",
+    "vl_bits": "128",
+    "max_abs_err": "3.815e-06",
+    "max_rel_err": "2.994e-07",
+    "bit_exact": "0",
+    "ok": true
+   },
+   {
+    "kernel": "gemm_naive",
+    "size": "96",
+    "vl_bits": "256",
+    "max_abs_err": "3.815e-06",
+    "max_rel_err": "2.994e-07",
+    "bit_exact": "0",
+    "ok": true
+   },
+   {
+    "kernel": "gemm_naive",
+    "size": "96",
+    "vl_bits": "512",
+    "max_abs_err": "3.815e-06",
+    "max_rel_err": "2.994e-07",
+    "bit_exact": "0",
+    "ok": true
+   },
+   {
+    "kernel": "gemm_naive",
+    "size": "96",
+    "vl_bits": "2048",
+    "max_abs_err": "3.815e-06",
+    "max_rel_err": "2.994e-07",
+    "bit_exact": "0",
+    "ok": true
+   }
+  ],
+  "dyn_insns": 4139253,
+  "dyn_insns_traced": 4139253,
+  "est_cycles": 1829535.9949999999,
+  "mca_fallback_blocks": 0,
+  "hot_block": [
+   "ldp\ts2, s3, [x19, #-0x4]",
+   "ldr\ts4, [x20]",
+   "ldr\ts5, [x20, x10, lsl #2]",
+   "subs\tx21, x21, #0x2",
+   "add\tx20, x20, x12",
+   "add\tx19, x19, #0x8",
+   "fmadd\ts0, s2, s4, s0",
+   "fmadd\ts1, s3, s5, s1",
+   "b.ne\t0x400ee0 <gemm_naive+0xc0>"
+  ],
+  "hot_block_execs": 442368,
+  "hot_block_cycles_per_iter": 4.045,
+  "uses_sve": false,
+  "uses_neon": false
+ },
+ {
+  "cpu": "neoverse-v1",
+  "machine": "AWS Graviton3",
+  "profile_vl": 256,
+  "variant": "+pass relaxed, gathers=off",
+  "variant_id": "pass_relaxed_nogather",
+  "kernel": "gemm_tiled",
+  "size": 96,
+  "cmd": "clang --target=aarch64-linux-gnu -mcpu=neoverse-v1 -O3 libSveVectorizeHint.so libSveVectorizeHint.so -mllvm -sve-hint-mode=relaxed -mllvm -sve-hint-gathers=off",
+  "correctness": [
+   {
+    "kernel": "gemm_tiled",
+    "size": "96",
+    "vl_bits": "128",
+    "max_abs_err": "0.000e+00",
+    "max_rel_err": "0.000e+00",
+    "bit_exact": "1",
+    "ok": true
+   },
+   {
+    "kernel": "gemm_tiled",
+    "size": "96",
+    "vl_bits": "256",
+    "max_abs_err": "0.000e+00",
+    "max_rel_err": "0.000e+00",
+    "bit_exact": "1",
+    "ok": true
+   },
+   {
+    "kernel": "gemm_tiled",
+    "size": "96",
+    "vl_bits": "512",
+    "max_abs_err": "0.000e+00",
+    "max_rel_err": "0.000e+00",
+    "bit_exact": "1",
+    "ok": true
+   },
+   {
+    "kernel": "gemm_tiled",
+    "size": "96",
+    "vl_bits": "2048",
+    "max_abs_err": "0.000e+00",
+    "max_rel_err": "0.000e+00",
+    "bit_exact": "1",
+    "ok": true
+   }
+  ],
+  "dyn_insns": 1117996,
+  "dyn_insns_traced": 1117996,
+  "est_cycles": 277486.19,
+  "mca_fallback_blocks": 0,
+  "hot_block": [
+   "ld1w\t{ z2.s }, p0/z, [x10, x9, lsl #2]",
+   "ld1w\t{ z3.s }, p0/z, [x18, x9, lsl #2]",
+   "ld1w\t{ z4.s }, p0/z, [x27, x9, lsl #2]",
+   "fmad\tz2.s, p0/m, z1.s, z4.s",
+   "ld1w\t{ z5.s }, p0/z, [x28, x9, lsl #2]",
+   "fmad\tz3.s, p0/m, z1.s, z5.s",
+   "st1w\t{ z2.s }, p0, [x27, x9, lsl #2]",
+   "st1w\t{ z3.s }, p0, [x28, x9, lsl #2]",
+   "add\tx9, x9, x11",
+   "cmp\tx12, x9",
+   "b.ne\t0x4011e0 <gemm_tiled+0x1f0>"
+  ],
+  "hot_block_execs": 55296,
+  "hot_block_cycles_per_iter": 3.05,
+  "uses_sve": true,
+  "uses_neon": false
+ },
+ {
+  "cpu": "neoverse-v1",
+  "machine": "AWS Graviton3",
+  "profile_vl": 256,
+  "variant": "+pass relaxed, gathers=off",
+  "variant_id": "pass_relaxed_nogather",
+  "kernel": "conv2d",
+  "size": 96,
+  "cmd": "clang --target=aarch64-linux-gnu -mcpu=neoverse-v1 -O3 libSveVectorizeHint.so libSveVectorizeHint.so -mllvm -sve-hint-mode=relaxed -mllvm -sve-hint-gathers=off",
+  "correctness": [
+   {
+    "kernel": "conv2d",
+    "size": "96",
+    "vl_bits": "128",
+    "max_abs_err": "0.000e+00",
+    "max_rel_err": "0.000e+00",
+    "bit_exact": "1",
+    "ok": true
+   },
+   {
+    "kernel": "conv2d",
+    "size": "96",
+    "vl_bits": "256",
+    "max_abs_err": "0.000e+00",
+    "max_rel_err": "0.000e+00",
+    "bit_exact": "1",
+    "ok": true
+   },
+   {
+    "kernel": "conv2d",
+    "size": "96",
+    "vl_bits": "512",
+    "max_abs_err": "0.000e+00",
+    "max_rel_err": "0.000e+00",
+    "bit_exact": "1",
+    "ok": true
+   },
+   {
+    "kernel": "conv2d",
+    "size": "96",
+    "vl_bits": "2048",
+    "max_abs_err": "0.000e+00",
+    "max_rel_err": "0.000e+00",
+    "bit_exact": "1",
+    "ok": true
+   }
+  ],
+  "dyn_insns": 1158497,
+  "dyn_insns_traced": 1158497,
+  "est_cycles": 438695.6450000001,
+  "mca_fallback_blocks": 0,
+  "hot_block": [
+   "add\tw27, w22, w25",
+   "ldr\ts3, [x23, x25, lsl #2]",
+   "add\tx25, x25, #0x1",
+   "subs\tx26, x26, #0x1",
+   "ldr\ts2, [x4, w27, sxtw #2]",
+   "fmadd\ts1, s2, s3, s1",
+   "b.ne\t0x4013a0 <conv2d+0x140>"
+  ],
+  "hot_block_execs": 79524,
+  "hot_block_cycles_per_iter": 4.05,
+  "uses_sve": false,
+  "uses_neon": false
+ },
+ {
+  "cpu": "neoverse-v1",
+  "machine": "AWS Graviton3",
+  "profile_vl": 256,
+  "variant": "+pass relaxed, force SVE everywhere",
+  "variant_id": "pass_force",
+  "kernel": "gemm_naive",
+  "size": 96,
+  "cmd": "clang --target=aarch64-linux-gnu -mcpu=neoverse-v1 -O3 libSveVectorizeHint.so libSveVectorizeHint.so -mllvm -sve-hint-mode=relaxed -mllvm -sve-hint-gathers=on -mllvm -sve-hint-force-scalable",
+  "correctness": [
+   {
+    "kernel": "gemm_naive",
+    "size": "96",
+    "vl_bits": "128",
+    "max_abs_err": "3.815e-06",
+    "max_rel_err": "2.994e-07",
+    "bit_exact": "0",
+    "ok": true
+   },
+   {
+    "kernel": "gemm_naive",
+    "size": "96",
+    "vl_bits": "256",
+    "max_abs_err": "3.815e-06",
+    "max_rel_err": "2.994e-07",
+    "bit_exact": "0",
+    "ok": true
+   },
+   {
+    "kernel": "gemm_naive",
+    "size": "96",
+    "vl_bits": "512",
+    "max_abs_err": "3.815e-06",
+    "max_rel_err": "2.994e-07",
+    "bit_exact": "0",
+    "ok": true
+   },
+   {
+    "kernel": "gemm_naive",
+    "size": "96",
+    "vl_bits": "2048",
+    "max_abs_err": "0.000e+00",
+    "max_rel_err": "0.000e+00",
+    "bit_exact": "1",
+    "ok": true
+   }
+  ],
+  "dyn_insns": 1457208,
+  "dyn_insns_traced": 1457208,
+  "est_cycles": 656525.735,
+  "mca_fallback_blocks": 0,
+  "hot_block": [
+   "add\tz18.d, z16.d, z2.d",
+   "add\tz19.d, z17.d, z2.d",
+   "ld1w\t{ z20.s }, p0/z, [x16, x6, lsl #2]",
+   "ld1w\t{ z21.s }, p0/z, [x18, x6, lsl #2]",
+   "movprfx\tz22, z19",
+   "mul\tz22.d, p1/m, z22.d, z0.d",
+   "movprfx\tz23, z18",
+   "mul\tz23.d, p1/m, z23.d, z0.d",
+   "add\tx6, x6, x10",
+   "cmp\tx5, x6",
+   "mul\tz17.d, p1/m, z17.d, z0.d",
+   "mul\tz16.d, p1/m, z16.d, z0.d",
+   "ld1w\t{ z16.d }, p1/z, [x7, z16.d, lsl #2]",
+   "ld1w\t{ z17.d }, p1/z, [x7, z17.d, lsl #2]",
+   "uzp1\tz16.s, z16.s, z17.s",
+   "ld1w\t{ z17.d }, p1/z, [x7, z23.d, lsl #2]",
+   "ld1w\t{ z22.d }, p1/z, [x7, z22.d, lsl #2]",
+   "fmla\tz6.s, p0/m, z20.s, z16.s",
+   "add\tz16.d, z18.d, z2.d",
+   "uzp1\tz17.s, z17.s, z22.s",
+   "fmla\tz7.s, p0/m, z21.s, z17.s",
+   "add\tz17.d, z19.d, z2.d",
+   "b.ne\t0x400f04 <gemm_naive+0xe4>"
+  ],
+  "hot_block_execs": 55296,
+  "hot_block_cycles_per_iter": 9.105,
+  "uses_sve": true,
+  "uses_neon": false
+ },
+ {
+  "cpu": "neoverse-v1",
+  "machine": "AWS Graviton3",
+  "profile_vl": 256,
+  "variant": "+pass relaxed, force SVE everywhere",
+  "variant_id": "pass_force",
+  "kernel": "gemm_tiled",
+  "size": 96,
+  "cmd": "clang --target=aarch64-linux-gnu -mcpu=neoverse-v1 -O3 libSveVectorizeHint.so libSveVectorizeHint.so -mllvm -sve-hint-mode=relaxed -mllvm -sve-hint-gathers=on -mllvm -sve-hint-force-scalable",
+  "correctness": [
+   {
+    "kernel": "gemm_tiled",
+    "size": "96",
+    "vl_bits": "128",
+    "max_abs_err": "0.000e+00",
+    "max_rel_err": "0.000e+00",
+    "bit_exact": "1",
+    "ok": true
+   },
+   {
+    "kernel": "gemm_tiled",
+    "size": "96",
+    "vl_bits": "256",
+    "max_abs_err": "0.000e+00",
+    "max_rel_err": "0.000e+00",
+    "bit_exact": "1",
+    "ok": true
+   },
+   {
+    "kernel": "gemm_tiled",
+    "size": "96",
+    "vl_bits": "512",
+    "max_abs_err": "0.000e+00",
+    "max_rel_err": "0.000e+00",
+    "bit_exact": "1",
+    "ok": true
+   },
+   {
+    "kernel": "gemm_tiled",
+    "size": "96",
+    "vl_bits": "2048",
+    "max_abs_err": "0.000e+00",
+    "max_rel_err": "0.000e+00",
+    "bit_exact": "1",
+    "ok": true
+   }
+  ],
+  "dyn_insns": 1117996,
+  "dyn_insns_traced": 1117996,
+  "est_cycles": 277486.19,
+  "mca_fallback_blocks": 0,
+  "hot_block": [
+   "ld1w\t{ z2.s }, p0/z, [x10, x9, lsl #2]",
+   "ld1w\t{ z3.s }, p0/z, [x18, x9, lsl #2]",
+   "ld1w\t{ z4.s }, p0/z, [x27, x9, lsl #2]",
+   "fmad\tz2.s, p0/m, z1.s, z4.s",
+   "ld1w\t{ z5.s }, p0/z, [x28, x9, lsl #2]",
+   "fmad\tz3.s, p0/m, z1.s, z5.s",
+   "st1w\t{ z2.s }, p0, [x27, x9, lsl #2]",
+   "st1w\t{ z3.s }, p0, [x28, x9, lsl #2]",
+   "add\tx9, x9, x11",
+   "cmp\tx12, x9",
+   "b.ne\t0x401180 <gemm_tiled+0x1e0>"
+  ],
+  "hot_block_execs": 55296,
+  "hot_block_cycles_per_iter": 3.05,
+  "uses_sve": true,
+  "uses_neon": false
+ },
+ {
+  "cpu": "neoverse-v1",
+  "machine": "AWS Graviton3",
+  "profile_vl": 256,
+  "variant": "+pass relaxed, force SVE everywhere",
+  "variant_id": "pass_force",
+  "kernel": "conv2d",
+  "size": 96,
+  "cmd": "clang --target=aarch64-linux-gnu -mcpu=neoverse-v1 -O3 libSveVectorizeHint.so libSveVectorizeHint.so -mllvm -sve-hint-mode=relaxed -mllvm -sve-hint-gathers=on -mllvm -sve-hint-force-scalable",
+  "correctness": [
+   {
+    "kernel": "conv2d",
+    "size": "96",
+    "vl_bits": "128",
+    "max_abs_err": "0.000e+00",
+    "max_rel_err": "0.000e+00",
+    "bit_exact": "1",
+    "ok": true
+   },
+   {
+    "kernel": "conv2d",
+    "size": "96",
+    "vl_bits": "256",
+    "max_abs_err": "0.000e+00",
+    "max_rel_err": "0.000e+00",
+    "bit_exact": "1",
+    "ok": true
+   },
+   {
+    "kernel": "conv2d",
+    "size": "96",
+    "vl_bits": "512",
+    "max_abs_err": "0.000e+00",
+    "max_rel_err": "0.000e+00",
+    "bit_exact": "1",
+    "ok": true
+   },
+   {
+    "kernel": "conv2d",
+    "size": "96",
+    "vl_bits": "2048",
+    "max_abs_err": "0.000e+00",
+    "max_rel_err": "0.000e+00",
+    "bit_exact": "1",
+    "ok": true
+   }
+  ],
+  "dyn_insns": 1158497,
+  "dyn_insns_traced": 1158497,
+  "est_cycles": 438695.6450000001,
+  "mca_fallback_blocks": 0,
+  "hot_block": [
+   "add\tw27, w22, w25",
+   "ldr\ts3, [x23, x25, lsl #2]",
+   "add\tx25, x25, #0x1",
+   "subs\tx26, x26, #0x1",
+   "ldr\ts2, [x4, w27, sxtw #2]",
+   "fmadd\ts1, s2, s3, s1",
+   "b.ne\t0x401340 <conv2d+0x140>"
+  ],
+  "hot_block_execs": 79524,
+  "hot_block_cycles_per_iter": 4.05,
+  "uses_sve": false,
+  "uses_neon": false
+ },
+ {
+  "cpu": "neoverse-v1",
+  "machine": "AWS Graviton3",
+  "profile_vl": 256,
+  "variant": "clang -O3 -ffast-math",
+  "variant_id": "clang_fastmath",
+  "kernel": "gemm_naive",
+  "size": 96,
+  "cmd": "clang --target=aarch64-linux-gnu -mcpu=neoverse-v1 -O3 -ffast-math",
+  "correctness": [
+   {
+    "kernel": "gemm_naive",
+    "size": "96",
+    "vl_bits": "128",
+    "max_abs_err": "3.815e-06",
+    "max_rel_err": "2.994e-07",
+    "bit_exact": "0",
+    "ok": true
+   },
+   {
+    "kernel": "gemm_naive",
+    "size": "96",
+    "vl_bits": "256",
+    "max_abs_err": "3.815e-06",
+    "max_rel_err": "2.994e-07",
+    "bit_exact": "0",
+    "ok": true
+   },
+   {
+    "kernel": "gemm_naive",
+    "size": "96",
+    "vl_bits": "512",
+    "max_abs_err": "3.815e-06",
+    "max_rel_err": "2.994e-07",
+    "bit_exact": "0",
+    "ok": true
+   },
+   {
+    "kernel": "gemm_naive",
+    "size": "96",
+    "vl_bits": "2048",
+    "max_abs_err": "3.815e-06",
+    "max_rel_err": "2.994e-07",
+    "bit_exact": "0",
+    "ok": true
+   }
+  ],
+  "dyn_insns": 4139253,
+  "dyn_insns_traced": 4139253,
+  "est_cycles": 1829535.9949999999,
+  "mca_fallback_blocks": 0,
+  "hot_block": [
+   "ldp\ts2, s3, [x19, #-0x4]",
+   "ldr\ts4, [x20]",
+   "ldr\ts5, [x20, x10, lsl #2]",
+   "subs\tx21, x21, #0x2",
+   "add\tx20, x20, x12",
+   "add\tx19, x19, #0x8",
+   "fmadd\ts0, s4, s2, s0",
+   "fmadd\ts1, s5, s3, s1",
+   "b.ne\t0x400ee0 <gemm_naive+0xc0>"
+  ],
+  "hot_block_execs": 442368,
+  "hot_block_cycles_per_iter": 4.045,
+  "uses_sve": false,
+  "uses_neon": false
+ },
+ {
+  "cpu": "neoverse-v1",
+  "machine": "AWS Graviton3",
+  "profile_vl": 256,
+  "variant": "clang -O3 -ffast-math",
+  "variant_id": "clang_fastmath",
+  "kernel": "gemm_tiled",
+  "size": 96,
+  "cmd": "clang --target=aarch64-linux-gnu -mcpu=neoverse-v1 -O3 -ffast-math",
+  "correctness": [
+   {
+    "kernel": "gemm_tiled",
+    "size": "96",
+    "vl_bits": "128",
+    "max_abs_err": "0.000e+00",
+    "max_rel_err": "0.000e+00",
+    "bit_exact": "1",
+    "ok": true
+   },
+   {
+    "kernel": "gemm_tiled",
+    "size": "96",
+    "vl_bits": "256",
+    "max_abs_err": "0.000e+00",
+    "max_rel_err": "0.000e+00",
+    "bit_exact": "1",
+    "ok": true
+   },
+   {
+    "kernel": "gemm_tiled",
+    "size": "96",
+    "vl_bits": "512",
+    "max_abs_err": "0.000e+00",
+    "max_rel_err": "0.000e+00",
+    "bit_exact": "1",
+    "ok": true
+   },
+   {
+    "kernel": "gemm_tiled",
+    "size": "96",
+    "vl_bits": "2048",
+    "max_abs_err": "0.000e+00",
+    "max_rel_err": "0.000e+00",
+    "bit_exact": "1",
+    "ok": true
+   }
+  ],
+  "dyn_insns": 1117996,
+  "dyn_insns_traced": 1117996,
+  "est_cycles": 277486.19,
+  "mca_fallback_blocks": 0,
+  "hot_block": [
+   "ld1w\t{ z2.s }, p0/z, [x10, x9, lsl #2]",
+   "ld1w\t{ z3.s }, p0/z, [x18, x9, lsl #2]",
+   "ld1w\t{ z4.s }, p0/z, [x27, x9, lsl #2]",
+   "fmad\tz2.s, p0/m, z1.s, z4.s",
+   "ld1w\t{ z5.s }, p0/z, [x28, x9, lsl #2]",
+   "fmad\tz3.s, p0/m, z1.s, z5.s",
+   "st1w\t{ z2.s }, p0, [x27, x9, lsl #2]",
+   "st1w\t{ z3.s }, p0, [x28, x9, lsl #2]",
+   "add\tx9, x9, x11",
+   "cmp\tx12, x9",
+   "b.ne\t0x4011e0 <gemm_tiled+0x1f0>"
+  ],
+  "hot_block_execs": 55296,
+  "hot_block_cycles_per_iter": 3.05,
+  "uses_sve": true,
+  "uses_neon": false
+ },
+ {
+  "cpu": "neoverse-v1",
+  "machine": "AWS Graviton3",
+  "profile_vl": 256,
+  "variant": "clang -O3 -ffast-math",
+  "variant_id": "clang_fastmath",
+  "kernel": "conv2d",
+  "size": 96,
+  "cmd": "clang --target=aarch64-linux-gnu -mcpu=neoverse-v1 -O3 -ffast-math",
+  "correctness": [
+   {
+    "kernel": "conv2d",
+    "size": "96",
+    "vl_bits": "128",
+    "max_abs_err": "0.000e+00",
+    "max_rel_err": "0.000e+00",
+    "bit_exact": "1",
+    "ok": true
+   },
+   {
+    "kernel": "conv2d",
+    "size": "96",
+    "vl_bits": "256",
+    "max_abs_err": "0.000e+00",
+    "max_rel_err": "0.000e+00",
+    "bit_exact": "1",
+    "ok": true
+   },
+   {
+    "kernel": "conv2d",
+    "size": "96",
+    "vl_bits": "512",
+    "max_abs_err": "0.000e+00",
+    "max_rel_err": "0.000e+00",
+    "bit_exact": "1",
+    "ok": true
+   },
+   {
+    "kernel": "conv2d",
+    "size": "96",
+    "vl_bits": "2048",
+    "max_abs_err": "0.000e+00",
+    "max_rel_err": "0.000e+00",
+    "bit_exact": "1",
+    "ok": true
+   }
+  ],
+  "dyn_insns": 1052464,
+  "dyn_insns_traced": 1052464,
+  "est_cycles": 436441.465,
+  "mca_fallback_blocks": 0,
+  "hot_block": [
+   "add\tw27, w22, w25",
+   "ldr\ts3, [x23, x25, lsl #2]",
+   "add\tx25, x25, #0x1",
+   "subs\tx26, x26, #0x1",
+   "ldr\ts2, [x4, w27, sxtw #2]",
+   "fmadd\ts1, s3, s2, s1",
+   "b.ne\t0x401384 <conv2d+0x124>"
+  ],
+  "hot_block_execs": 79524,
+  "hot_block_cycles_per_iter": 4.05,
+  "uses_sve": false,
+  "uses_neon": false
+ },
+ {
+  "cpu": "neoverse-v1",
+  "machine": "AWS Graviton3",
+  "profile_vl": 256,
+  "variant": "gcc-13 -O3",
+  "variant_id": "gcc_O3",
+  "kernel": "gemm_naive",
+  "size": 96,
+  "cmd": "aarch64-linux-gnu-gcc -mcpu=neoverse-v1 -O3",
+  "correctness": [
+   {
+    "kernel": "gemm_naive",
+    "size": "96",
+    "vl_bits": "128",
+    "max_abs_err": "3.338e-06",
+    "max_rel_err": "2.620e-07",
+    "bit_exact": "0",
+    "ok": true
+   },
+   {
+    "kernel": "gemm_naive",
+    "size": "96",
+    "vl_bits": "256",
+    "max_abs_err": "3.338e-06",
+    "max_rel_err": "2.620e-07",
+    "bit_exact": "0",
+    "ok": true
+   },
+   {
+    "kernel": "gemm_naive",
+    "size": "96",
+    "vl_bits": "512",
+    "max_abs_err": "3.338e-06",
+    "max_rel_err": "2.620e-07",
+    "bit_exact": "0",
+    "ok": true
+   },
+   {
+    "kernel": "gemm_naive",
+    "size": "96",
+    "vl_bits": "2048",
+    "max_abs_err": "3.338e-06",
+    "max_rel_err": "2.620e-07",
+    "bit_exact": "0",
+    "ok": true
+   }
+  ],
+  "dyn_insns": 986705,
+  "dyn_insns_traced": 986705,
+  "est_cycles": 1244843.3649999998,
+  "mca_fallback_blocks": 0,
+  "hot_block": [
+   "ld1w\t{ z0.s }, p0/z, [x2, x0, lsl #2]",
+   "ld1w\t{ z2.s }, p0/z, [x1, z3.s, sxtw #2]",
+   "add\tx0, x0, x5",
+   "fmul\tz0.s, p0/m, z0.s, z2.s",
+   "add\tx1, x1, x3",
+   "fadda\ts1, p0, s1, z0.s",
+   "whilelo\tp0.s, w0, w4",
+   "b.ne\t0x400e80 <gemm_naive+0x60>"
+  ],
+  "hot_block_execs": 110592,
+  "hot_block_cycles_per_iter": 11.085,
+  "uses_sve": true,
+  "uses_neon": false
+ },
+ {
+  "cpu": "neoverse-v1",
+  "machine": "AWS Graviton3",
+  "profile_vl": 256,
+  "variant": "gcc-13 -O3",
+  "variant_id": "gcc_O3",
+  "kernel": "gemm_tiled",
+  "size": 96,
+  "cmd": "aarch64-linux-gnu-gcc -mcpu=neoverse-v1 -O3",
+  "correctness": [
+   {
+    "kernel": "gemm_tiled",
+    "size": "96",
+    "vl_bits": "128",
+    "max_abs_err": "0.000e+00",
+    "max_rel_err": "0.000e+00",
+    "bit_exact": "1",
+    "ok": true
+   },
+   {
+    "kernel": "gemm_tiled",
+    "size": "96",
+    "vl_bits": "256",
+    "max_abs_err": "0.000e+00",
+    "max_rel_err": "0.000e+00",
+    "bit_exact": "1",
+    "ok": true
+   },
+   {
+    "kernel": "gemm_tiled",
+    "size": "96",
+    "vl_bits": "512",
+    "max_abs_err": "0.000e+00",
+    "max_rel_err": "0.000e+00",
+    "bit_exact": "1",
+    "ok": true
+   },
+   {
+    "kernel": "gemm_tiled",
+    "size": "96",
+    "vl_bits": "2048",
+    "max_abs_err": "0.000e+00",
+    "max_rel_err": "0.000e+00",
+    "bit_exact": "1",
+    "ok": true
+   }
+  ],
+  "dyn_insns": 861774,
+  "dyn_insns_traced": 861774,
+  "est_cycles": 227564.695,
+  "mca_fallback_blocks": 0,
+  "hot_block": [
+   "ld1w\t{ z1.s }, p0/z, [x12, x6, lsl #2]",
+   "ld1w\t{ z0.s }, p0/z, [x0, x6, lsl #2]",
+   "fmla\tz0.s, p0/m, z1.s, z3.s",
+   "st1w\t{ z0.s }, p0, [x0, x6, lsl #2]",
+   "ld1w\t{ z2.s }, p0/z, [x25, x6, lsl #2]",
+   "ld1rw\t{ z1.s }, p1/z, [x16]",
+   "fmla\tz0.s, p0/m, z1.s, z2.s",
+   "st1w\t{ z0.s }, p0, [x0, x6, lsl #2]",
+   "add\tx6, x6, x21",
+   "whilelo\tp0.s, w6, w4",
+   "b.ne\t0x401060 <gemm_tiled+0x198>"
+  ],
+  "hot_block_execs": 51840,
+  "hot_block_cycles_per_iter": 3.065,
+  "uses_sve": true,
+  "uses_neon": false
+ },
+ {
+  "cpu": "neoverse-v1",
+  "machine": "AWS Graviton3",
+  "profile_vl": 256,
+  "variant": "gcc-13 -O3",
+  "variant_id": "gcc_O3",
+  "kernel": "conv2d",
+  "size": 96,
+  "cmd": "aarch64-linux-gnu-gcc -mcpu=neoverse-v1 -O3",
+  "correctness": [
+   {
+    "kernel": "conv2d",
+    "size": "96",
+    "vl_bits": "128",
+    "max_abs_err": "4.768e-07",
+    "max_rel_err": "1.364e-07",
+    "bit_exact": "0",
+    "ok": true
+   },
+   {
+    "kernel": "conv2d",
+    "size": "96",
+    "vl_bits": "256",
+    "max_abs_err": "4.768e-07",
+    "max_rel_err": "1.364e-07",
+    "bit_exact": "0",
+    "ok": true
+   },
+   {
+    "kernel": "conv2d",
+    "size": "96",
+    "vl_bits": "512",
+    "max_abs_err": "4.768e-07",
+    "max_rel_err": "1.364e-07",
+    "bit_exact": "0",
+    "ok": true
+   },
+   {
+    "kernel": "conv2d",
+    "size": "96",
+    "vl_bits": "2048",
+    "max_abs_err": "4.768e-07",
+    "max_rel_err": "1.364e-07",
+    "bit_exact": "0",
+    "ok": true
+   }
+  ],
+  "dyn_insns": 636870,
+  "dyn_insns_traced": 636870,
+  "est_cycles": 390456.695,
+  "mca_fallback_blocks": 0,
+  "hot_block": [
+   "ld1w\t{ z0.s }, p0/z, [x2, x0, lsl #2]",
+   "ld1w\t{ z2.s }, p0/z, [x3, x0, lsl #2]",
+   "add\tx0, x0, x4",
+   "fmul\tz0.s, p0/m, z0.s, z2.s",
+   "fadda\ts1, p0, s1, z0.s",
+   "whilelo\tp0.s, w0, w1",
+   "b.ne\t0x401280 <conv2d+0x94>"
+  ],
+  "hot_block_execs": 26508,
+  "hot_block_cycles_per_iter": 11.06,
+  "uses_sve": true,
+  "uses_neon": false
+ }
+]

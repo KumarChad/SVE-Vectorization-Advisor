@@ -1,0 +1,3 @@
+# Keep shell scripts and sources LF-only, even when cloned on Windows,
+# so setup.sh runs in WSL without "\r: command not found" errors.
+* text=auto eol=lf

@@ -1,0 +1,56 @@
+### neoverse-v2 (NVIDIA Grace) / +pass strict
+[sve-vectorize-hint] gemm_naive @ src/kernels/kernels.c:18 [unit=1 strided=1 fp-red=1 | NEON=128b SVE=128b] -> leave width to cost model (FP reduction; strict mode keeps results bit-exact)
+[sve-vectorize-hint] gemm_tiled @ src/kernels/kernels.c:42 [unit=3 strided=0 fp-red=0 | NEON=128b SVE=128b] -> leave width to cost model (SVE no wider than NEON here; NEON ldp/stp is cheaper)
+[sve-vectorize-hint] conv2d @ src/kernels/kernels.c:57 [unit=1 strided=0 fp-red=1 | NEON=128b SVE=128b] -> leave width to cost model (access pattern not analysable by SCEV)
+[sve-vectorize-hint] conv2d @ src/kernels/kernels.c:54 [unit=1 strided=0 fp-red=0 | NEON=128b SVE=128b] -> leave width to cost model (SVE no wider than NEON here; NEON ldp/stp is cheaper)
+[sve-vectorize-hint] conv2d @ src/kernels/kernels.c:53 [unit=0 strided=0 fp-red=0 | NEON=128b SVE=128b] -> skip: not in loop-simplify form
+
+### neoverse-v2 (NVIDIA Grace) / +pass relaxed (default policy)
+[sve-vectorize-hint] gemm_naive @ src/kernels/kernels.c:18 [unit=1 strided=1 fp-red=1 | NEON=128b SVE=128b] -> reassoc(1 ops); leave width to cost model (needs gathers; at this SVE width they lose to scalar code)
+[sve-vectorize-hint] gemm_tiled @ src/kernels/kernels.c:42 [unit=3 strided=0 fp-red=0 | NEON=128b SVE=128b] -> leave width to cost model (SVE no wider than NEON here; NEON ldp/stp is cheaper)
+[sve-vectorize-hint] conv2d @ src/kernels/kernels.c:57 [unit=1 strided=0 fp-red=1 | NEON=128b SVE=128b] -> reassoc(1 ops); leave width to cost model (access pattern not analysable by SCEV)
+[sve-vectorize-hint] conv2d @ src/kernels/kernels.c:54 [unit=1 strided=0 fp-red=0 | NEON=128b SVE=128b] -> leave width to cost model (SVE no wider than NEON here; NEON ldp/stp is cheaper)
+[sve-vectorize-hint] conv2d @ src/kernels/kernels.c:53 [unit=0 strided=0 fp-red=0 | NEON=128b SVE=128b] -> skip: not in loop-simplify form
+
+### neoverse-v2 (NVIDIA Grace) / +pass relaxed, gathers=off
+[sve-vectorize-hint] gemm_naive @ src/kernels/kernels.c:18 [unit=1 strided=1 fp-red=1 | NEON=128b SVE=128b] -> reassoc(1 ops); leave width to cost model (needs gathers; at this SVE width they lose to scalar code)
+[sve-vectorize-hint] gemm_tiled @ src/kernels/kernels.c:42 [unit=3 strided=0 fp-red=0 | NEON=128b SVE=128b] -> leave width to cost model (SVE no wider than NEON here; NEON ldp/stp is cheaper)
+[sve-vectorize-hint] conv2d @ src/kernels/kernels.c:57 [unit=1 strided=0 fp-red=1 | NEON=128b SVE=128b] -> reassoc(1 ops); leave width to cost model (access pattern not analysable by SCEV)
+[sve-vectorize-hint] conv2d @ src/kernels/kernels.c:54 [unit=1 strided=0 fp-red=0 | NEON=128b SVE=128b] -> leave width to cost model (SVE no wider than NEON here; NEON ldp/stp is cheaper)
+[sve-vectorize-hint] conv2d @ src/kernels/kernels.c:53 [unit=0 strided=0 fp-red=0 | NEON=128b SVE=128b] -> skip: not in loop-simplify form
+
+### neoverse-v2 (NVIDIA Grace) / +pass relaxed, force SVE everywhere
+[sve-vectorize-hint] gemm_naive @ src/kernels/kernels.c:18 [unit=1 strided=1 fp-red=1 | NEON=128b SVE=128b] -> reassoc(1 ops); FORCE SVE (SVE gathers (NEON has none))
+[sve-vectorize-hint] gemm_tiled @ src/kernels/kernels.c:42 [unit=3 strided=0 fp-red=0 | NEON=128b SVE=128b] -> FORCE SVE (-sve-hint-force-scalable)
+[sve-vectorize-hint] conv2d @ src/kernels/kernels.c:57 [unit=1 strided=0 fp-red=1 | NEON=128b SVE=128b] -> reassoc(1 ops); leave width to cost model (access pattern not analysable by SCEV)
+[sve-vectorize-hint] conv2d @ src/kernels/kernels.c:54 [unit=1 strided=0 fp-red=0 | NEON=128b SVE=128b] -> FORCE SVE (-sve-hint-force-scalable)
+[sve-vectorize-hint] conv2d @ src/kernels/kernels.c:53 [unit=0 strided=0 fp-red=0 | NEON=128b SVE=128b] -> skip: not in loop-simplify form
+
+### neoverse-v1 (AWS Graviton3) / +pass strict
+[sve-vectorize-hint] gemm_naive @ src/kernels/kernels.c:18 [unit=1 strided=1 fp-red=1 | NEON=128b SVE=256b] -> leave width to cost model (FP reduction; strict mode keeps results bit-exact)
+[sve-vectorize-hint] gemm_tiled @ src/kernels/kernels.c:42 [unit=3 strided=0 fp-red=0 | NEON=128b SVE=256b] -> FORCE SVE (SVE is wider than NEON on this CPU)
+[sve-vectorize-hint] conv2d @ src/kernels/kernels.c:57 [unit=1 strided=0 fp-red=1 | NEON=128b SVE=256b] -> leave width to cost model (access pattern not analysable by SCEV)
+[sve-vectorize-hint] conv2d @ src/kernels/kernels.c:54 [unit=1 strided=0 fp-red=0 | NEON=128b SVE=256b] -> FORCE SVE (SVE is wider than NEON on this CPU)
+[sve-vectorize-hint] conv2d @ src/kernels/kernels.c:53 [unit=0 strided=0 fp-red=0 | NEON=128b SVE=256b] -> skip: not in loop-simplify form
+
+### neoverse-v1 (AWS Graviton3) / +pass relaxed (default policy)
+[sve-vectorize-hint] gemm_naive @ src/kernels/kernels.c:18 [unit=1 strided=1 fp-red=1 | NEON=128b SVE=256b] -> reassoc(1 ops); FORCE SVE (SVE gathers (NEON has none))
+[sve-vectorize-hint] gemm_tiled @ src/kernels/kernels.c:42 [unit=3 strided=0 fp-red=0 | NEON=128b SVE=256b] -> FORCE SVE (SVE is wider than NEON on this CPU)
+[sve-vectorize-hint] conv2d @ src/kernels/kernels.c:57 [unit=1 strided=0 fp-red=1 | NEON=128b SVE=256b] -> reassoc(1 ops); leave width to cost model (access pattern not analysable by SCEV)
+[sve-vectorize-hint] conv2d @ src/kernels/kernels.c:54 [unit=1 strided=0 fp-red=0 | NEON=128b SVE=256b] -> FORCE SVE (SVE is wider than NEON on this CPU)
+[sve-vectorize-hint] conv2d @ src/kernels/kernels.c:53 [unit=0 strided=0 fp-red=0 | NEON=128b SVE=256b] -> skip: not in loop-simplify form
+
+### neoverse-v1 (AWS Graviton3) / +pass relaxed, gathers=off
+[sve-vectorize-hint] gemm_naive @ src/kernels/kernels.c:18 [unit=1 strided=1 fp-red=1 | NEON=128b SVE=256b] -> reassoc(1 ops); leave width to cost model (needs gather/scatter (-sve-hint-gathers=off))
+[sve-vectorize-hint] gemm_tiled @ src/kernels/kernels.c:42 [unit=3 strided=0 fp-red=0 | NEON=128b SVE=256b] -> FORCE SVE (SVE is wider than NEON on this CPU)
+[sve-vectorize-hint] conv2d @ src/kernels/kernels.c:57 [unit=1 strided=0 fp-red=1 | NEON=128b SVE=256b] -> reassoc(1 ops); leave width to cost model (access pattern not analysable by SCEV)
+[sve-vectorize-hint] conv2d @ src/kernels/kernels.c:54 [unit=1 strided=0 fp-red=0 | NEON=128b SVE=256b] -> FORCE SVE (SVE is wider than NEON on this CPU)
+[sve-vectorize-hint] conv2d @ src/kernels/kernels.c:53 [unit=0 strided=0 fp-red=0 | NEON=128b SVE=256b] -> skip: not in loop-simplify form
+
+### neoverse-v1 (AWS Graviton3) / +pass relaxed, force SVE everywhere
+[sve-vectorize-hint] gemm_naive @ src/kernels/kernels.c:18 [unit=1 strided=1 fp-red=1 | NEON=128b SVE=256b] -> reassoc(1 ops); FORCE SVE (SVE gathers (NEON has none))
+[sve-vectorize-hint] gemm_tiled @ src/kernels/kernels.c:42 [unit=3 strided=0 fp-red=0 | NEON=128b SVE=256b] -> FORCE SVE (SVE is wider than NEON on this CPU)
+[sve-vectorize-hint] conv2d @ src/kernels/kernels.c:57 [unit=1 strided=0 fp-red=1 | NEON=128b SVE=256b] -> reassoc(1 ops); leave width to cost model (access pattern not analysable by SCEV)
+[sve-vectorize-hint] conv2d @ src/kernels/kernels.c:54 [unit=1 strided=0 fp-red=0 | NEON=128b SVE=256b] -> FORCE SVE (SVE is wider than NEON on this CPU)
+[sve-vectorize-hint] conv2d @ src/kernels/kernels.c:53 [unit=0 strided=0 fp-red=0 | NEON=128b SVE=256b] -> skip: not in loop-simplify form
+
